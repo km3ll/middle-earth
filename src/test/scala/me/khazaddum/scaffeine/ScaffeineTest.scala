@@ -32,6 +32,7 @@ class ScaffeineTest extends AsyncFlatSpec with ScalaFutures with Matchers {
       Scaffeine()
         .recordStats()
         .expireAfterWrite( 10.minutes )
+        .expireAfterAccess( 10.minutes )
         .maximumSize( 500 ) // maximum number of entries
         .build[Int, String]()
 
@@ -41,6 +42,61 @@ class ScaffeineTest extends AsyncFlatSpec with ScalaFutures with Matchers {
     cache.getIfPresent( 1 ) shouldBe Some( "foo" )
     println( cache.stats() )
     cache.getIfPresent( 2 ) shouldBe None
+
+  }
+
+  it should "enable operations with Maps" in {
+
+    val cache: Cache[Int, String] =
+      Scaffeine()
+        .recordStats()
+        .expireAfterWrite( 10.minutes )
+        .maximumSize( 500 ) // maximum number of entries
+        .build[Int, String]()
+
+    // putAll
+    val values = Map( 1 -> "foo", 2 -> "bar" )
+    cache.putAll( values )
+
+    // getAllPresent
+    val keys = Set( 1, 2, 3 )
+    val valuesFromCache: Map[Int, String] = cache.getAllPresent( keys )
+
+    valuesFromCache.size shouldBe 2
+    valuesFromCache.contains( 1 ) shouldBe true
+    valuesFromCache.contains( 2 ) shouldBe true
+    valuesFromCache.contains( 3 ) shouldBe false // not cached
+
+  }
+
+  it should "allow key invalidation" in {
+
+    val cache: Cache[Int, String] =
+      Scaffeine()
+        .recordStats()
+        .expireAfterWrite( 10.minutes )
+        .maximumSize( 500 ) // maximum number of entries
+        .build[Int, String]()
+
+    val values = Map( 1 -> "foo", 2 -> "bar", 3 -> "lorem", 4 -> "ipsum" )
+    cache.putAll( values )
+
+    // invalidate one key
+    cache.getIfPresent( 1 ) shouldBe Some( "foo" )
+    cache.invalidate( 1 )
+    cache.getIfPresent( 1 ) shouldBe None
+
+    // invalidate a set of keys
+    cache.getIfPresent( 2 ) shouldBe Some( "bar" )
+    cache.getIfPresent( 3 ) shouldBe Some( "lorem" )
+    cache.invalidateAll( Set( 2, 3 ) )
+    cache.getIfPresent( 2 ) shouldBe None
+    cache.getIfPresent( 3 ) shouldBe None
+
+    // invalidate all the keys
+    cache.getIfPresent( 4 ) shouldBe Some( "ipsum" )
+    cache.invalidateAll()
+    cache.getIfPresent( 4 ) shouldBe None
 
   }
 
