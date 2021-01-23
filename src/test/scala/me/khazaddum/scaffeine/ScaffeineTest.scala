@@ -3,6 +3,7 @@ package me.khazaddum.scaffeine
 import org.scalatest.flatspec.AsyncFlatSpec
 import org.scalatest.matchers.should.Matchers
 import com.github.blemale.scaffeine.{ AsyncLoadingCache, Cache, LoadingCache, Scaffeine }
+import me.khazaddum.UnitTest
 import org.scalatest.concurrent.ScalaFutures
 
 import scala.concurrent.Future
@@ -15,7 +16,7 @@ class ScaffeineTest extends AsyncFlatSpec with ScalaFutures with Matchers {
   Entries are manually added and are stored in the cache until either evicted or manually invalidated.
   I put and get values to/from cache.
   */
-  "Cache" should "be created with basic builder" in {
+  "Cache" should "be created with basic builder" taggedAs UnitTest in {
 
     val cache: Cache[Int, String] =
       Scaffeine()
@@ -26,7 +27,7 @@ class ScaffeineTest extends AsyncFlatSpec with ScalaFutures with Matchers {
 
   }
 
-  it should "enable build properties" in {
+  it should "enable build properties" taggedAs UnitTest in {
 
     val cache: Cache[Int, String] =
       Scaffeine()
@@ -45,7 +46,7 @@ class ScaffeineTest extends AsyncFlatSpec with ScalaFutures with Matchers {
 
   }
 
-  it should "enable operations with Maps" in {
+  it should "enable operations with Maps" taggedAs UnitTest in {
 
     val cache: Cache[Int, String] =
       Scaffeine()
@@ -69,7 +70,7 @@ class ScaffeineTest extends AsyncFlatSpec with ScalaFutures with Matchers {
 
   }
 
-  it should "allow key invalidation" in {
+  it should "allow key invalidation" taggedAs UnitTest in {
 
     val cache: Cache[Int, String] =
       Scaffeine()
@@ -106,9 +107,9 @@ class ScaffeineTest extends AsyncFlatSpec with ScalaFutures with Matchers {
   and they are stored in the cache until either evicted or manually invalidated.
   I provide a loader function to (1) get a value and (2) automatically cache it
   */
-  "LoadingCache" should "be created with basic builder" in {
+  "LoadingCache" should "be created with basic builder" taggedAs UnitTest in {
 
-    val repository: Map[Int, String] = Map( ( 1 -> "foo" ) )
+    val repository: Map[Int, String] = Map( 1 -> "foo" )
 
     def query( repo: Map[Int, String] )( key: Int ): String = {
       println( s"querying '$key' from repo..." )
@@ -131,9 +132,9 @@ class ScaffeineTest extends AsyncFlatSpec with ScalaFutures with Matchers {
 
   }
 
-  "AsyncLoadingCache" should "be created with Synchronous loader" in {
+  "AsyncLoadingCache" should "be created with Synchronous loader" taggedAs UnitTest in {
 
-    val repository: Map[Int, String] = Map( ( 1 -> "foo" ), ( 2 -> "bar" ) )
+    val repository: Map[Int, String] = Map( 1 -> "foo", 2 -> "bar" )
 
     def query( repo: Map[Int, String] )( key: Int ): String = {
       println( s"querying async '$key' from repo..." )
@@ -154,9 +155,9 @@ class ScaffeineTest extends AsyncFlatSpec with ScalaFutures with Matchers {
 
   }
 
-  it should "be created with Asynchronous loader" in {
+  it should "be created with Asynchronous loader" taggedAs UnitTest in {
 
-    val repository: Map[Int, String] = Map( ( 1 -> "foo" ) )
+    val repository: Map[Int, String] = Map( 1 -> "foo" )
 
     def query( repo: Map[Int, String] )( key: Int ): Future[String] = Future.successful {
       println( s"querying async '$key' from repo..." )
