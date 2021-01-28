@@ -14,11 +14,11 @@ class ScalaCheckTest extends AnyFlatSpec with Matchers {
 
   it should "be created from basic builder" taggedAs UnitTest in {
 
-    val AccountNumberGen: Gen[String] = for {
+    val numberGenerator: Gen[String] = for {
       no <- Gen.choose( 1L, 99999999L )
     } yield "%08d".format( no )
 
-    AccountNumberGen.sample.isDefined shouldBe true
+    println( s"sample: ${numberGenerator.sample.get}" )
 
   }
 
@@ -30,14 +30,13 @@ class ScalaCheckTest extends AnyFlatSpec with Matchers {
       def sample: A = gen.sample.get
     }
 
-    object AccountNumberGenerator extends Generator[String] {
+    object numberGenerator extends Generator[String] {
       val gen: Gen[String] = for {
-        no <- Gen.choose( 1L, 99999999L )
+        no <- Gen.choose[Int]( 1, 99999999 )
       } yield "%08d".format( no )
     }
 
-    AccountNumberGenerator.gen.sample.isDefined shouldBe true
-    AccountNumberGenerator.sample.length shouldBe 8
+    println( s"sample: ${numberGenerator.gen.sample.get}" )
 
   }
 
@@ -50,7 +49,7 @@ class ScalaCheckTest extends AnyFlatSpec with Matchers {
       balance <- Gen.choose[Double]( 1, 1000000 )
     } yield Account( no, balance )
 
-    AccountGenerator.sample.isDefined shouldBe true
+    println( s"sample: ${AccountGenerator.sample.get}" )
 
   }
 
@@ -58,7 +57,6 @@ class ScalaCheckTest extends AnyFlatSpec with Matchers {
 
   it should "include ''" taggedAs UnitTest in {
     /*
-    val gen =
     val gen = Gen.calendar
     val gen = Gen.finiteDuration
     val gen = Gen.duration
@@ -95,7 +93,6 @@ class ScalaCheckTest extends AnyFlatSpec with Matchers {
   it should "include ''" taggedAs UnitTest in {
     /*
     val gen = Gen.numChar
-    val gen = Gen.alphaUpperChar
     val gen = Gen.alphaLowerChar
     val gen = Gen.alphaChar
     val gen = Gen.alphaNumChar
@@ -111,7 +108,7 @@ class ScalaCheckTest extends AnyFlatSpec with Matchers {
       chars <- Gen.listOfN( 10, Gen.alphaLowerChar ).map( _.mkString )
     } yield s"$upperChar$chars"
 
-    NameGenerator.sample.isDefined shouldBe true
+    println( s"sample: ${NameGenerator.sample.get}" )
 
   }
 
@@ -147,7 +144,7 @@ class ScalaCheckTest extends AnyFlatSpec with Matchers {
       domain <- Gen.listOfN( 10, Gen.alphaLowerChar ).map( _.mkString )
     } yield s"$name@$domain"
 
-    EmailGenerator.sample.isDefined shouldBe true
+    println( s"sample: ${EmailGenerator.sample.get}" )
 
   }
 
@@ -157,7 +154,8 @@ class ScalaCheckTest extends AnyFlatSpec with Matchers {
       values <- Gen.pick( 3, List( "AUD", "BRL", "CAD", "CNY", "COP", "EUR" ) )
     } yield values
 
-    CurrenciesGenerator.sample.isDefined shouldBe true
+    println( s"sample: ${CurrenciesGenerator.sample.get}" )
+    CurrenciesGenerator.sample.get.length shouldBe 3
 
   }
 
@@ -166,7 +164,7 @@ class ScalaCheckTest extends AnyFlatSpec with Matchers {
   it should "include 'choose'" taggedAs UnitTest in {
 
     val AgeGenerator: Gen[Int] = Gen.choose[Int]( 1, 100 )
-    AgeGenerator.sample.isDefined shouldBe true
+    println( s"sample: ${AgeGenerator.sample.get}" )
 
   }
 
@@ -176,14 +174,14 @@ class ScalaCheckTest extends AnyFlatSpec with Matchers {
       _ <- Gen.const( () )
     } yield UUID.randomUUID()
 
-    UuidGenerator.sample.isDefined shouldBe true
+    println( s"sample: ${UuidGenerator.sample.get}" )
 
   }
 
   it should "include 'fail'" taggedAs UnitTest in {
 
     val FailGenerator: Gen[String] = Gen.fail[String]
-    FailGenerator.sample.isDefined shouldBe false
+    println( s"sample: ${FailGenerator.sample}" )
 
   }
 
@@ -198,17 +196,19 @@ class ScalaCheckTest extends AnyFlatSpec with Matchers {
       ( 7, CreditOccurred ) // 70%
     )
 
-    EventGenerator.sample.isDefined shouldBe true
+    println( s"sample 1: ${EventGenerator.sample.get}" )
+    println( s"sample 2: ${EventGenerator.sample.get}" )
+    println( s"sample 3: ${EventGenerator.sample.get}" )
 
   }
 
   it should "include 'oneOf'" taggedAs UnitTest in {
 
-    val CurrencyGenerator: Gen[String] = for {
+    val CurrencyCodeGenerator: Gen[String] = for {
       value <- Gen.oneOf( "BRL", "CAD", "COP", "EUR" )
     } yield value
 
-    CurrencyGenerator.sample.isDefined shouldBe true
+    println( s"sample: ${CurrencyCodeGenerator.sample.get}" )
 
   }
 
@@ -223,7 +223,9 @@ class ScalaCheckTest extends AnyFlatSpec with Matchers {
       status <- Gen.option( Gen.oneOf( Starting, Running, Stopping ) )
     } yield status
 
-    MaybeStatusGenerator.sample
+    println( s"sample 1: ${MaybeStatusGenerator.sample.get}" )
+    println( s"sample 2: ${MaybeStatusGenerator.sample.get}" )
+    println( s"sample 3: ${MaybeStatusGenerator.sample.get}" )
 
   }
 
@@ -242,7 +244,7 @@ class ScalaCheckTest extends AnyFlatSpec with Matchers {
 
     val EventsGenerator: Gen[util.ArrayList[Event]] = Gen.sequence( List( DebitEventGenerator, CreditEventGenerator ) )
 
-    EventsGenerator.sample.isDefined shouldBe true
+    println( s"sample: ${EventsGenerator.sample.get}" )
     EventsGenerator.sample.exists( _.size() == 2 ) shouldBe true
 
   }
