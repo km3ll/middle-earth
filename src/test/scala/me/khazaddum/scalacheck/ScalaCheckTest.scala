@@ -1,5 +1,6 @@
 package me.khazaddum.scalacheck
 
+import java.util
 import java.util.UUID
 
 import me.khazaddum.UnitTest
@@ -150,16 +151,6 @@ class ScalaCheckTest extends AnyFlatSpec with Matchers {
 
   }
 
-  it should "include 'oneOf'" taggedAs UnitTest in {
-
-    val CurrencyGenerator: Gen[String] = for {
-      value <- Gen.oneOf( "BRL", "CAD", "COP", "EUR" )
-    } yield value
-
-    CurrencyGenerator.sample.isDefined shouldBe true
-
-  }
-
   it should "include 'pick'" taggedAs UnitTest in {
 
     val CurrenciesGenerator: Gen[Seq[String]] = for {
@@ -172,22 +163,11 @@ class ScalaCheckTest extends AnyFlatSpec with Matchers {
 
   behavior of "Generator Combinators"
 
-  it should "include ''" taggedAs UnitTest in {
-    /*
-    val gen = Gen.fail
-    val gen = Gen.choose
-    val gen = Gen.sequence
-    val gen = Gen.delay
-    val gen = Gen.parameterized
-    val gen = Gen.sized
-    val gen = Gen.size
-    val gen = Gen.resize
-    val gen = Gen.oneOf
-    val gen = Gen.option
-    val gen = Gen.some
-    val gen = Gen.frequency
-    val gen = Gen.freqTuple
-    */
+  it should "include 'choose'" taggedAs UnitTest in {
+
+    val AgeGenerator: Gen[Int] = Gen.choose[Int]( 1, 100 )
+    AgeGenerator.sample.isDefined shouldBe true
+
   }
 
   it should "include 'const'" taggedAs UnitTest in {
@@ -197,6 +177,73 @@ class ScalaCheckTest extends AnyFlatSpec with Matchers {
     } yield UUID.randomUUID()
 
     UuidGenerator.sample.isDefined shouldBe true
+
+  }
+
+  it should "include 'fail'" taggedAs UnitTest in {
+
+    val FailGenerator: Gen[String] = Gen.fail[String]
+    FailGenerator.sample.isDefined shouldBe false
+
+  }
+
+  it should "include 'frequency'" taggedAs UnitTest in {
+
+    trait Event
+    case object DebitOccurred extends Event
+    case object CreditOccurred extends Event
+
+    val EventGenerator: Gen[Event] = Gen.frequency(
+      ( 3, DebitOccurred ), // 30%
+      ( 7, CreditOccurred ) // 70%
+    )
+
+    EventGenerator.sample.isDefined shouldBe true
+
+  }
+
+  it should "include 'oneOf'" taggedAs UnitTest in {
+
+    val CurrencyGenerator: Gen[String] = for {
+      value <- Gen.oneOf( "BRL", "CAD", "COP", "EUR" )
+    } yield value
+
+    CurrencyGenerator.sample.isDefined shouldBe true
+
+  }
+
+  it should "include 'option'" taggedAs UnitTest in {
+
+    trait Status
+    case object Starting extends Status
+    case object Running extends Status
+    case object Stopping extends Status
+
+    val MaybeStatusGenerator: Gen[Option[Status]] = for {
+      status <- Gen.option( Gen.oneOf( Starting, Running, Stopping ) )
+    } yield status
+
+    MaybeStatusGenerator.sample
+
+  }
+
+  it should "include 'sequence'" taggedAs UnitTest in {
+
+    case class Event( name: String, accountNo: String, amount: Double )
+
+    val DebitEventGenerator: Gen[Event] = for {
+      no <- Gen.choose( 1L, 99999999L ).map( "%08d".format( _ ) )
+      amount <- Gen.choose[Double]( 100, 1000000 )
+    } yield Event( "DebitOccurred", no, amount )
+
+    val CreditEventGenerator: Gen[Event] = for {
+      event <- DebitEventGenerator
+    } yield event.copy( name = "CreditOccurred" )
+
+    val EventsGenerator: Gen[util.ArrayList[Event]] = Gen.sequence( List( DebitEventGenerator, CreditEventGenerator ) )
+
+    EventsGenerator.sample.isDefined shouldBe true
+    EventsGenerator.sample.exists( _.size() == 2 ) shouldBe true
 
   }
 
