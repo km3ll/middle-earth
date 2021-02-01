@@ -259,7 +259,7 @@ class ScalaCheckTest extends AnyFlatSpec with Matchers {
 
   }
 
-  it should "include 'mapOf'" taggedAs UnitTest in {
+  it should "include 'mapOfN'" taggedAs UnitTest in {
 
     val ErrorGenerator: Gen[( Int, String )] = for {
       code <- Gen.choose( 100, 999 )
@@ -267,10 +267,10 @@ class ScalaCheckTest extends AnyFlatSpec with Matchers {
     } yield ( code, description )
 
     val MapGenerator: Gen[Map[Int, String]] = for {
-      map <- Gen.mapOf( ErrorGenerator )
+      map <- Gen.mapOfN( 3, ErrorGenerator )
     } yield map
 
-    println( s"mapOf sample: ${MapGenerator.sample.get}" )
+    println( s"mapOfN sample: ${MapGenerator.sample.get}" )
 
   }
 
