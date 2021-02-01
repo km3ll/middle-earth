@@ -228,27 +228,14 @@ class ScalaCheckTest extends AnyFlatSpec with Matchers {
 
   behavior of "List Generators"
 
-  it should "include ''" taggedAs UnitTest in {
-    /*
-    val gen = Gen.buildableOfN
-    val gen = Gen.buildableOf
-    val gen = Gen.nonEmptyBuildableOf
-    val gen = Gen.containerOfN
-    val gen = Gen.containerOf
-    val gen = Gen.nonEmptyContainerOf
-    val gen = Gen.listOf
-    val gen = Gen.nonEmptyListOf
-    val gen = Gen.mapOf
-    val gen = Gen.nonEmptyMap
-    val gen = Gen.mapOfN
-    val gen = Gen.nonEmptyMap
-    val gen = Gen.mapOfN
-    val gen = Gen.infiniteStream
-    val gen = Gen.someOf
-    val gen = Gen.atLeastOne
-    val gen = Gen.resultOf
-    val gen = Gen.function0
-    */
+  it should "include 'atLeastOne'" taggedAs UnitTest in {
+
+    val CoffeesGenerator = for {
+      coffees <- Gen.atLeastOne( List( "Cold brew", "Moka", "Espresso", "Cappuccino", "Affogato" ) )
+    } yield coffees
+
+    println( s"atLeastOne sample: ${CoffeesGenerator.sample.get}" )
+
   }
 
   it should "include 'listOf'" taggedAs UnitTest in {
@@ -269,6 +256,33 @@ class ScalaCheckTest extends AnyFlatSpec with Matchers {
     } yield s"$name@$domain"
 
     println( s"listOfN sample: ${EmailGenerator.sample.get}" )
+
+  }
+
+  it should "include 'mapOf'" taggedAs UnitTest in {
+
+    val ErrorGenerator: Gen[( Int, String )] = for {
+      code <- Gen.choose( 100, 999 )
+      description <- Gen.alphaStr
+    } yield ( code, description )
+
+    val MapGenerator: Gen[Map[Int, String]] = for {
+      map <- Gen.mapOf( ErrorGenerator )
+    } yield map
+
+    println( s"mapOf sample: ${MapGenerator.sample.get}" )
+
+  }
+
+  it should "include 'nonEmptyListOf'" taggedAs UnitTest in {
+
+    val statusCodes = Gen.atLeastOne( List( 200, 202, 400, 403, 404, 500 ) )
+
+    val CodesGenerator = for {
+      codes <- Gen.nonEmptyListOf( statusCodes )
+    } yield codes
+
+    println( s"nonEmptyListOf sample: ${CodesGenerator.sample.get}" )
 
   }
 
