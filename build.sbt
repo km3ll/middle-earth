@@ -1,12 +1,13 @@
 
-name := "middle-earth"
+name := "khazad-dum"
 version := "0.1"
 scalaVersion := "2.12.6"
 
 libraryDependencies ++= Seq(
   "com.typesafe"        %  "config"     % "1.3.2",
   "org.scalatest"       %% "scalatest"  % "3.2.2",
-  "com.github.blemale"  %% "scaffeine"  % "4.0.2"
+  "com.github.blemale"  %% "scaffeine"  % "4.0.2",
+  "org.scalacheck"      %% "scalacheck" % "1.14.1"
 )
 
 addCommandAlias( "me", "clean ; compile ; test:compile ; test")
