@@ -10,7 +10,7 @@ libraryDependencies ++= Seq(
   "org.scalacheck"      %% "scalacheck" % "1.14.1"
 )
 
-addCommandAlias( "me", "clean ; compile ; test:compile ; test")
+addCommandAlias( "me", "clean ; compile ; test:compile ; coverage ; test ; coverageReport")
 
 scalacOptions ++= Seq(
   "-deprecation",
@@ -32,3 +32,5 @@ scalacOptions ++= Seq(
   "-Ywarn-unused-import",
   "-Xfuture"
 )
+
+coverageEnabled := true
