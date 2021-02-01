@@ -34,4 +34,3 @@ scalacOptions ++= Seq(
 )
 
 coverageEnabled := true
-coverageMinimum := 90
