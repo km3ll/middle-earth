@@ -49,8 +49,8 @@ object Account {
   }
 
   private def validateRate( rate: Double ): Validation[Double] = {
-    if ( rate < 0 || rate > 100 ) rate.validNel
-    else s"Rate of interest must not be between 1 and 100. Found '$rate'".invalidNel
+    if ( rate >= 0 && rate <= 100 ) rate.validNel
+    else s"Rate of interest must be between 0 and 100. Found '$rate'".invalidNel
   }
 
   def checkingAccount(

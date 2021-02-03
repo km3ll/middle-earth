@@ -1,6 +1,6 @@
 # middle-earth
 
-![statementcoverage](https://img.shields.io/badge/Statement%20coverage-11.59%25-red.svg)
+![statementcoverage](https://img.shields.io/badge/Statement%20coverage-100.00%25-brightgreen.svg)![statementcoverage](https://img.shields.io/badge/Branch%20coverage-100.00%25-brightgreen.svg)
 
 ## Table of contents
 
