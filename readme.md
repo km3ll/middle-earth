@@ -1,6 +1,6 @@
 # middle-earth
 
-![statementcoverage](https://img.shields.io/badge/Statement%20coverage-100.00%25-brightgreen.svg)![statementcoverage](https://img.shields.io/badge/Branch%20coverage-100.00%25-brightgreen.svg)
+![statementcoverage](https://img.shields.io/badge/statement%20coverage-100.00%25-brightgreen.svg)![statementcoverage](https://img.shields.io/badge/branch%20coverage-100.00%25-brightgreen.svg)
 
 ## Table of contents
 
@@ -18,6 +18,7 @@
 ```
 sbt me
 sbt "testOnly -- -n unit"
+sbt "testOnly -- -n component"
 ```
 
 ### references
