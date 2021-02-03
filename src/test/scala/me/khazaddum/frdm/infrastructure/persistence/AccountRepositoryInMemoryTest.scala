@@ -13,11 +13,11 @@ object AccountRepositoryInMemoryTest extends Properties( "In-Memory Account repo
 
   val repository = AccountRepositoryInMemory()
 
-  property( "a previously upserted account must be queried back" ) = forAll( GenAccount ) {
+  property( "a previously persisted account must be queried back" ) = forAll( GenAccount ) {
     account =>
       {
         val actions: Future[Option[Account]] = for {
-          upserted <- repository.upsert( account )
+          persisted <- repository.upsert( account )
           queried <- repository.find( account.no )
         } yield queried
 
