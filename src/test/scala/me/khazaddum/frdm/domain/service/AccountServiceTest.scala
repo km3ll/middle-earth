@@ -2,9 +2,9 @@ package me.khazaddum.frdm.domain.service
 
 import java.util.Calendar
 
-import me.khazaddum.frdm.generators.{ GenAccount, GenCheckingAccount, GenSavingAccount }
+import me.khazaddum.frdm.generators.{GenAccount, GenCheckingAccount, GenSavingAccount}
 import me.khazaddum.ComponentTest
-import me.khazaddum.frdm.domain.model.{ CheckingAccount, SavingAccount }
+import me.khazaddum.frdm.domain.model.{CheckingAccount, SavingAccount}
 import me.khazaddum.frdm.infrastructure.persistence.AccountRepositoryMock
 import org.scalatest.concurrent.ScalaFutures
 import org.scalatest.flatspec.AsyncFlatSpec
