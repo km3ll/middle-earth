@@ -10,6 +10,8 @@
 
 ### packages
 
+- eventstore
+- frdm
 - caffeine
 - scalacheck 
 
