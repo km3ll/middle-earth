@@ -3,17 +3,18 @@ package me.khazaddum.cqrs.query
 import cats.syntax.either._
 import com.typesafe.scalalogging.LazyLogging
 import me.khazaddum.cqrs._
+import me.khazaddum.cqrs.dto.{ CoffeeNames, CqrsDto }
 
 import scala.concurrent.Future
 
-case class ListCoffeeNames() extends Query[Context, CqrsDto] with LazyLogging {
+case class ListCoffeeNames() extends Query[Environment, CqrsDto] with LazyLogging {
 
-  def execute( context: Context ): QueryK[Context, CqrsDto] = {
+  def execute( context: Context ): QueryK[Environment, CqrsDto] = {
     queryK {
-      context =>
+      environment =>
         eitherT[CqrsDto] {
 
-          logger.debug( "Listing coffee names..." )
+          logger.debug( s"${context.correlationId} - Listing..." )
 
           Future.successful {
             logger.debug( "Names listed successfully" )

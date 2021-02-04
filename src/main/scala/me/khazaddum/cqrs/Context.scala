@@ -1,17 +1,19 @@
 package me.khazaddum.cqrs
 
-import com.typesafe.config.{ Config, ConfigFactory }
+import java.util.UUID
 
 trait Context {
-
-  val config: Config
-  val token: String
-
+  def correlationId: String
 }
 
-case class LocalContext() extends Context {
+case class TransactionalContext(
+  correlationId: String
+) extends Context
 
-  val config: Config = ConfigFactory.load( "me.khazad-dum.cqrs" )
-  val token: String = config.getString( "token" )
+object Context {
+
+  def transactional( correlationId: Option[String] = None ): TransactionalContext = {
+    TransactionalContext( correlationId.getOrElse( UUID.randomUUID().toString ) )
+  }
 
 }

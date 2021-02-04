@@ -1,4 +1,6 @@
-package me.khazaddum.cqrs
+package me.khazaddum.cqrs.dto
+
+import me.khazaddum.cqrs.CqrsEvent
 
 sealed trait CqrsDto
 

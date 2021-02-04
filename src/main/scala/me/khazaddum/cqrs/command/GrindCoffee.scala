@@ -5,19 +5,20 @@ import java.util.UUID
 import cats.syntax.either._
 import com.typesafe.scalalogging.LazyLogging
 import me.khazaddum.cqrs._
+import me.khazaddum.cqrs.dto.{ CqrsDto, SuccessDto }
 
 import scala.concurrent.Future
 
-case class Grind( beans: String ) extends Command[Context, CqrsDto] with LazyLogging {
+case class GrindCoffee( beans: String ) extends Command[Environment, CqrsDto] with LazyLogging {
 
-  def execute( context: Context ): CommandK[Context, CqrsDto] = {
+  def execute( context: Context ): CommandK[Environment, CqrsDto] = {
     commandK {
-      context =>
+      environment =>
         eitherT[CqrsDto] {
 
-          logger.debug( "Start grinding..." )
+          logger.debug( s"${context.correlationId} - Grinding..." )
 
-          if ( beans.toLowerCase == "baked beans" )
+          if ( beans.toLowerCase == "baked" )
             Future.successful {
               logger.error( s"Error grinding '$beans'" )
               s"'$beans' cannot be ground".asLeft

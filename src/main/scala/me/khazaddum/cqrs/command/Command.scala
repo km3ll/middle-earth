@@ -1,16 +1,17 @@
 package me.khazaddum.cqrs.command
 
 import cats.data.{ EitherT, Kleisli }
-import me.khazaddum.cqrs.{ CommandK, Context, CqrsDto, Response }
+import me.khazaddum.cqrs.dto.CqrsDto
+import me.khazaddum.cqrs.{ CommandK, Context, Environment, Response }
 
 import scala.concurrent.Future
 
-trait Command[C <: Context, D <: CqrsDto] {
+trait Command[E <: Environment, D <: CqrsDto] {
 
-  def commandK( f: C => Response[D] ): CommandK[C, D] = Kleisli( f )
+  def commandK( f: E => Response[D] ): CommandK[E, D] = Kleisli( f )
 
   def eitherT[A]( f: => Future[Either[String, A]] ): EitherT[Future, String, A] = EitherT( f )
 
-  def execute( context: Context ): CommandK[C, D]
+  def execute( context: Context ): CommandK[E, D]
 
 }
