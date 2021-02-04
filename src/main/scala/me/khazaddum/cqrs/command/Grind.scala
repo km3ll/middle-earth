@@ -4,16 +4,16 @@ import java.util.UUID
 
 import cats.syntax.either._
 import com.typesafe.scalalogging.LazyLogging
-import me.khazaddum.cqrs.{ CommandK, Context, CqrsEvent, NonEmptyDto }
+import me.khazaddum.cqrs.{ CommandK, Context, CqrsEvent, SuccessDto }
 
 import scala.concurrent.Future
 
-case class Grind( beans: String ) extends Command[Context, NonEmptyDto] with LazyLogging {
+case class Grind( beans: String ) extends Command[Context, SuccessDto] with LazyLogging {
 
-  def execute( context: Context ): CommandK[Context, NonEmptyDto] = {
+  def execute( context: Context ): CommandK[Context, SuccessDto] = {
     commandK {
       context =>
-        eitherT[NonEmptyDto] {
+        eitherT[SuccessDto] {
 
           logger.debug( "Start grinding..." )
 
@@ -25,7 +25,7 @@ case class Grind( beans: String ) extends Command[Context, NonEmptyDto] with Laz
           else
             Future.successful {
               logger.debug( s"Beans $beans ground successfully" )
-              NonEmptyDto( "Success", createEvents( beans ) ).asRight
+              SuccessDto( "Beans ground successfully", createEvents( beans ) ).asRight
             }
 
         }

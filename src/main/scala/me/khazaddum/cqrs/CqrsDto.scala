@@ -1,14 +1,13 @@
 package me.khazaddum.cqrs
 
-sealed trait CqrsDto {
-  def events: List[CqrsEvent]
-}
+sealed trait CqrsDto
 
-case object EmptyDto extends CqrsDto {
-  val events = List.empty[CqrsEvent]
-}
+case class SuccessDto(
+  message: String,
+  events:  List[CqrsEvent] = List.empty
+) extends CqrsDto
 
-case class NonEmptyDto(
+case class FailureDto(
   message:   String,
   events:    List[CqrsEvent],
   exception: Option[Exception] = None
