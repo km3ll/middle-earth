@@ -4,11 +4,12 @@ version := "0.1"
 scalaVersion := "2.12.6"
 
 libraryDependencies ++= Seq(
-  "org.typelevel"       %% "cats-core"  % "2.1.1",
-  "com.typesafe"        %  "config"     % "1.3.2",
-  "com.github.blemale"  %% "scaffeine"  % "4.0.2",
-  "org.scalacheck"      %% "scalacheck" % "1.14.1",
-  "org.scalatest"       %% "scalatest"  % "3.2.2",
+  "org.typelevel"               %% "cats-core"      % "2.1.1",
+  "com.typesafe"                %  "config"         % "1.3.2",
+  "com.github.blemale"          %% "scaffeine"      % "4.0.2",
+  "org.scalacheck"              %% "scalacheck"     % "1.14.1",
+  "com.typesafe.scala-logging"  %% "scala-logging"  % "3.9.2",
+  "org.scalatest"               %% "scalatest"      % "3.2.2",
 )
 
 addCommandAlias( "me", "clean ; compile ; test:compile ; coverage ; test ; coverageReport")
