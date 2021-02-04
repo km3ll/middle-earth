@@ -3,7 +3,7 @@ package me.khazaddum.scaffeine
 import org.scalatest.flatspec.AsyncFlatSpec
 import org.scalatest.matchers.should.Matchers
 import com.github.blemale.scaffeine.{ AsyncLoadingCache, Cache, LoadingCache, Scaffeine }
-import me.khazaddum.UnitTest
+import me.khazaddum.Tags.UnitTest
 import org.scalatest.concurrent.ScalaFutures
 
 import scala.concurrent.Future
