@@ -8,7 +8,7 @@ import scala.concurrent.Future
 
 case class ListCoffeeNames() extends Query[Context, CqrsDto] with LazyLogging {
 
-  def execute( context: Context ): CommandK[Context, CqrsDto] = {
+  def execute( context: Context ): QueryK[Context, CqrsDto] = {
     queryK {
       context =>
         eitherT[CqrsDto] {
