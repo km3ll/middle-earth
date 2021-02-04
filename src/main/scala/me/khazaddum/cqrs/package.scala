@@ -10,4 +10,6 @@ package object cqrs {
 
   type CommandK[C, D] = Kleisli[Response, C, D]
 
+  type QueryK[C, D] = Kleisli[Response, C, D]
+
 }

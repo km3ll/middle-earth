@@ -12,3 +12,7 @@ case class FailureDto(
   events:    List[CqrsEvent],
   exception: Option[Exception] = None
 ) extends CqrsDto
+
+case class CoffeeNames(
+  names: List[String]
+) extends CqrsDto
