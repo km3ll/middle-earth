@@ -8,6 +8,7 @@ libraryDependencies ++= Seq(
   "com.typesafe"                %  "config"         % "1.3.2",
   "com.github.blemale"          %% "scaffeine"      % "4.0.2",
   "org.scalacheck"              %% "scalacheck"     % "1.14.1",
+  "ch.qos.logback"              % "logback-classic" % "1.3.0-alpha4",
   "com.typesafe.scala-logging"  %% "scala-logging"  % "3.9.2",
   "org.scalatest"               %% "scalatest"      % "3.2.2",
 )
