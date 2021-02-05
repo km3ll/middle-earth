@@ -2,7 +2,7 @@ package me.khazaddum.eventstore
 
 import java.util.UUID
 
-import me.khazaddum.UnitTest
+import me.khazaddum.Tags.UnitTest
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
 

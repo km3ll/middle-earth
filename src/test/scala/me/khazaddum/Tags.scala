@@ -1,8 +1,8 @@
-package me
+package me.khazaddum
 
 import org.scalatest.Tag
 
-package object khazaddum {
+object Tags {
 
   object UnitTest extends Tag( "unit" )
   object ComponentTest extends Tag( "component" )

@@ -3,7 +3,7 @@ package me.khazaddum.frdm.domain.model
 import java.util.{ Calendar, Date }
 
 import cats.data.NonEmptyList
-import me.khazaddum.UnitTest
+import me.khazaddum.Tags.UnitTest
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
 
