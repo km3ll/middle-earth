@@ -42,8 +42,9 @@ object AkkaHttpMain extends HttpRoutes with LazyLogging {
   }
 
   def startServer( config: Config, routes: Route )( implicit system: ActorSystem, dispatcher: ExecutionContextExecutor ): Future[Http.ServerBinding] = {
+
     val server: Future[Http.ServerBinding] =
-      Http().newServerAt( "localhost", 8080 ).bind( routes )
+      Http().newServerAt( config.getString( "host" ), config.getInt( "port" ) ).bind( routes )
 
     server.onComplete {
       case Success( Http.ServerBinding( local ) ) =>
@@ -57,13 +58,17 @@ object AkkaHttpMain extends HttpRoutes with LazyLogging {
 
   // Stop receiving HTTP connections
   def unbind( server: Http.ServerBinding ): Future[Done] = {
+
     logger.info( "Unbinding http connections" )
     server.unbind()
+
   }
 
   def terminate( system: ActorSystem ): Future[Terminated] = {
+
     logger.info( "Terminating actor system" )
     system.terminate()
+
   }
 
 }
