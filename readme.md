@@ -10,6 +10,7 @@
 
 ### packages
 
+- akka-http
 - cqrs
 - eventstore
 - frdm
@@ -26,6 +27,7 @@ sbt "testOnly -- -n component"
 
 ### references
 
+- [akka-http](https://doc.akka.io/docs/akka-http/current/server-side/low-level-api.html)
 - [cats](https://typelevel.org/cats/)
 - [functional and reactive domain modeling](https://github.com/debasishg/frdomain)
 - [the neophyte's guide to scala](https://danielwestheide.com/blog/the-neophytes-guide-to-scala-part-8-welcome-to-the-future/)
