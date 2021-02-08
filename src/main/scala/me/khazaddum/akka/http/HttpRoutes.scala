@@ -15,15 +15,15 @@ trait HttpRoutes extends HttpJsonParser with LazyLogging {
 
   private def now: ZonedDateTime = ZonedDateTime.now
 
-  val routes: Route = status ~ item
+  val routes: Route = systemRoutes ~ itemRoutes
 
-  def status: Route = path( "status" ) {
+  def systemRoutes: Route = path( "status" ) {
     get {
       complete( OK -> Status( now.toString, "UP!" ) )
     }
   }
 
-  def item: Route =
+  def itemRoutes: Route =
     pathPrefix( "item" ) {
       optionalHeaderValueByName( "X-TransactionId" ) { transactionId =>
         concat(
