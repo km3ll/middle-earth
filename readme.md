@@ -10,6 +10,7 @@
 
 ### packages
 
+- akka-http
 - cqrs
 - eventstore
 - frdm
@@ -24,9 +25,16 @@ sbt "testOnly -- -n unit"
 sbt "testOnly -- -n component"
 ```
 
+### tools
+
+- postman
+- swagger
+
 ### references
 
+- [akka-http](https://doc.akka.io/docs/akka-http/current/server-side/low-level-api.html)
 - [cats](https://typelevel.org/cats/)
+- [circe](https://circe.github.io/circe/)
 - [functional and reactive domain modeling](https://github.com/debasishg/frdomain)
 - [the neophyte's guide to scala](https://danielwestheide.com/blog/the-neophytes-guide-to-scala-part-8-welcome-to-the-future/)
 - [scaffeine cache](https://github.com/blemale/scaffeine)
@@ -35,3 +43,4 @@ sbt "testOnly -- -n component"
 - [scalatest](https://www.scalatest.org/user_guide)
 - [scoverage](https://github.com/scoverage/sbt-scoverage)
 - [shields-io](https://shields.io/category/coverage)
+- [swagger](https://editor.swagger.io/)
