@@ -14,6 +14,7 @@
 - cqrs
 - eventstore
 - frdm
+- gatling
 - scaffeine
 - scalacheck 
 
@@ -30,7 +31,6 @@ sbt "gatling:testOnly me.khazaddum.gatling.AppSimulation"
 ### tools
 
 - postman
-- gatling
 - swagger
 
 ### references
