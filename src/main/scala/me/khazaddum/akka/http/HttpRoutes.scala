@@ -19,6 +19,7 @@ trait HttpRoutes extends HttpJsonParser with LazyLogging {
 
   def systemRoutes: Route = path( "status" ) {
     get {
+      logger.info( "Processing GET /status" )
       complete( OK -> Status( now.toString, "UP!" ) )
     }
   }

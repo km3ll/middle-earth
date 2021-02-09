@@ -14,6 +14,7 @@
 - cqrs
 - eventstore
 - frdm
+- gatling
 - scaffeine
 - scalacheck 
 
@@ -23,6 +24,8 @@
 sbt me
 sbt "testOnly -- -n unit"
 sbt "testOnly -- -n component"
+sbt gatling:test
+sbt "gatling:testOnly me.khazaddum.gatling.AppSimulation"
 ```
 
 ### tools
@@ -36,6 +39,7 @@ sbt "testOnly -- -n component"
 - [cats](https://typelevel.org/cats/)
 - [circe](https://circe.github.io/circe/)
 - [functional and reactive domain modeling](https://github.com/debasishg/frdomain)
+* [gatling](https://gatling.io/docs/current/extensions/sbt_plugin/)
 - [the neophyte's guide to scala](https://danielwestheide.com/blog/the-neophytes-guide-to-scala-part-8-welcome-to-the-future/)
 - [scaffeine cache](https://github.com/blemale/scaffeine)
 - [scalacheck](https://github.com/typelevel/scalacheck/blob/master/doc/UserGuide.md)
