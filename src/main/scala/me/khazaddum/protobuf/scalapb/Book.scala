@@ -5,278 +5,278 @@
 
 package me.khazaddum.protobuf.scalapb
 
-@SerialVersionUID(0L)
+@SerialVersionUID( 0L )
 final case class Book(
-    isbn: _root_.scala.Predef.String = "",
-    title: _root_.scala.Predef.String = "",
-    genre: _root_.scala.Predef.String = "",
-    category: _root_.scala.Int = 0,
-    author: _root_.scala.Predef.String = "",
-    publisher: _root_.scala.Predef.String = "",
-    publicationDate: _root_.scala.Predef.String = "",
-    isActive: _root_.scala.Boolean = false
-    ) extends scalapb.GeneratedMessage with scalapb.Message[Book] with scalapb.lenses.Updatable[Book] {
-    @transient
-    private[this] var __serializedSizeCachedValue: _root_.scala.Int = 0
-    private[this] def __computeSerializedValue(): _root_.scala.Int = {
-      var __size = 0
-      
-      {
-        val __value = isbn
-        if (__value != "") {
-          __size += _root_.com.google.protobuf.CodedOutputStream.computeStringSize(1, __value)
-        }
-      };
-      
-      {
-        val __value = title
-        if (__value != "") {
-          __size += _root_.com.google.protobuf.CodedOutputStream.computeStringSize(2, __value)
-        }
-      };
-      
-      {
-        val __value = genre
-        if (__value != "") {
-          __size += _root_.com.google.protobuf.CodedOutputStream.computeStringSize(3, __value)
-        }
-      };
-      
-      {
-        val __value = category
-        if (__value != 0) {
-          __size += _root_.com.google.protobuf.CodedOutputStream.computeInt32Size(4, __value)
-        }
-      };
-      
-      {
-        val __value = author
-        if (__value != "") {
-          __size += _root_.com.google.protobuf.CodedOutputStream.computeStringSize(5, __value)
-        }
-      };
-      
-      {
-        val __value = publisher
-        if (__value != "") {
-          __size += _root_.com.google.protobuf.CodedOutputStream.computeStringSize(6, __value)
-        }
-      };
-      
-      {
-        val __value = publicationDate
-        if (__value != "") {
-          __size += _root_.com.google.protobuf.CodedOutputStream.computeStringSize(7, __value)
-        }
-      };
-      
-      {
-        val __value = isActive
-        if (__value != false) {
-          __size += _root_.com.google.protobuf.CodedOutputStream.computeBoolSize(8, __value)
-        }
-      };
-      __size
-    }
-    final override def serializedSize: _root_.scala.Int = {
-      var read = __serializedSizeCachedValue
-      if (read == 0) {
-        read = __computeSerializedValue()
-        __serializedSizeCachedValue = read
+  isbn:            _root_.scala.Predef.String = "",
+  title:           _root_.scala.Predef.String = "",
+  genre:           _root_.scala.Predef.String = "",
+  category:        _root_.scala.Int           = 0,
+  author:          _root_.scala.Predef.String = "",
+  publisher:       _root_.scala.Predef.String = "",
+  publicationDate: _root_.scala.Predef.String = "",
+  isActive:        _root_.scala.Boolean       = false
+) extends scalapb.GeneratedMessage with scalapb.Message[Book] with scalapb.lenses.Updatable[Book] {
+  @transient
+  private[this] var __serializedSizeCachedValue: _root_.scala.Int = 0
+  private[this] def __computeSerializedValue(): _root_.scala.Int = {
+    var __size = 0
+
+    {
+      val __value = isbn
+      if ( __value != "" ) {
+        __size += _root_.com.google.protobuf.CodedOutputStream.computeStringSize( 1, __value )
       }
-      read
-    }
-    def writeTo(`_output__`: _root_.com.google.protobuf.CodedOutputStream): _root_.scala.Unit = {
-      {
-        val __v = isbn
-        if (__v != "") {
-          _output__.writeString(1, __v)
-        }
-      };
-      {
-        val __v = title
-        if (__v != "") {
-          _output__.writeString(2, __v)
-        }
-      };
-      {
-        val __v = genre
-        if (__v != "") {
-          _output__.writeString(3, __v)
-        }
-      };
-      {
-        val __v = category
-        if (__v != 0) {
-          _output__.writeInt32(4, __v)
-        }
-      };
-      {
-        val __v = author
-        if (__v != "") {
-          _output__.writeString(5, __v)
-        }
-      };
-      {
-        val __v = publisher
-        if (__v != "") {
-          _output__.writeString(6, __v)
-        }
-      };
-      {
-        val __v = publicationDate
-        if (__v != "") {
-          _output__.writeString(7, __v)
-        }
-      };
-      {
-        val __v = isActive
-        if (__v != false) {
-          _output__.writeBool(8, __v)
-        }
-      };
-    }
-    def mergeFrom(`_input__`: _root_.com.google.protobuf.CodedInputStream): me.khazaddum.protobuf.scalapb.Book = {
-      var __isbn = this.isbn
-      var __title = this.title
-      var __genre = this.genre
-      var __category = this.category
-      var __author = this.author
-      var __publisher = this.publisher
-      var __publicationDate = this.publicationDate
-      var __isActive = this.isActive
-      var _done__ = false
-      while (!_done__) {
-        val _tag__ = _input__.readTag()
-        _tag__ match {
-          case 0 => _done__ = true
-          case 10 =>
-            __isbn = _input__.readString()
-          case 18 =>
-            __title = _input__.readString()
-          case 26 =>
-            __genre = _input__.readString()
-          case 32 =>
-            __category = _input__.readInt32()
-          case 42 =>
-            __author = _input__.readString()
-          case 50 =>
-            __publisher = _input__.readString()
-          case 58 =>
-            __publicationDate = _input__.readString()
-          case 64 =>
-            __isActive = _input__.readBool()
-          case tag => _input__.skipField(tag)
-        }
+    };
+
+    {
+      val __value = title
+      if ( __value != "" ) {
+        __size += _root_.com.google.protobuf.CodedOutputStream.computeStringSize( 2, __value )
       }
-      me.khazaddum.protobuf.scalapb.Book(
-          isbn = __isbn,
-          title = __title,
-          genre = __genre,
-          category = __category,
-          author = __author,
-          publisher = __publisher,
-          publicationDate = __publicationDate,
-          isActive = __isActive
-      )
+    };
+
+    {
+      val __value = genre
+      if ( __value != "" ) {
+        __size += _root_.com.google.protobuf.CodedOutputStream.computeStringSize( 3, __value )
+      }
+    };
+
+    {
+      val __value = category
+      if ( __value != 0 ) {
+        __size += _root_.com.google.protobuf.CodedOutputStream.computeInt32Size( 4, __value )
+      }
+    };
+
+    {
+      val __value = author
+      if ( __value != "" ) {
+        __size += _root_.com.google.protobuf.CodedOutputStream.computeStringSize( 5, __value )
+      }
+    };
+
+    {
+      val __value = publisher
+      if ( __value != "" ) {
+        __size += _root_.com.google.protobuf.CodedOutputStream.computeStringSize( 6, __value )
+      }
+    };
+
+    {
+      val __value = publicationDate
+      if ( __value != "" ) {
+        __size += _root_.com.google.protobuf.CodedOutputStream.computeStringSize( 7, __value )
+      }
+    };
+
+    {
+      val __value = isActive
+      if ( __value != false ) {
+        __size += _root_.com.google.protobuf.CodedOutputStream.computeBoolSize( 8, __value )
+      }
+    };
+    __size
+  }
+  final override def serializedSize: _root_.scala.Int = {
+    var read = __serializedSizeCachedValue
+    if ( read == 0 ) {
+      read = __computeSerializedValue()
+      __serializedSizeCachedValue = read
     }
-    def withIsbn(__v: _root_.scala.Predef.String): Book = copy(isbn = __v)
-    def withTitle(__v: _root_.scala.Predef.String): Book = copy(title = __v)
-    def withGenre(__v: _root_.scala.Predef.String): Book = copy(genre = __v)
-    def withCategory(__v: _root_.scala.Int): Book = copy(category = __v)
-    def withAuthor(__v: _root_.scala.Predef.String): Book = copy(author = __v)
-    def withPublisher(__v: _root_.scala.Predef.String): Book = copy(publisher = __v)
-    def withPublicationDate(__v: _root_.scala.Predef.String): Book = copy(publicationDate = __v)
-    def withIsActive(__v: _root_.scala.Boolean): Book = copy(isActive = __v)
-    def getFieldByNumber(__fieldNumber: _root_.scala.Int): _root_.scala.Any = {
-      (__fieldNumber: @_root_.scala.unchecked) match {
-        case 1 => {
-          val __t = isbn
-          if (__t != "") __t else null
-        }
-        case 2 => {
-          val __t = title
-          if (__t != "") __t else null
-        }
-        case 3 => {
-          val __t = genre
-          if (__t != "") __t else null
-        }
-        case 4 => {
-          val __t = category
-          if (__t != 0) __t else null
-        }
-        case 5 => {
-          val __t = author
-          if (__t != "") __t else null
-        }
-        case 6 => {
-          val __t = publisher
-          if (__t != "") __t else null
-        }
-        case 7 => {
-          val __t = publicationDate
-          if (__t != "") __t else null
-        }
-        case 8 => {
-          val __t = isActive
-          if (__t != false) __t else null
-        }
+    read
+  }
+  def writeTo( `_output__`: _root_.com.google.protobuf.CodedOutputStream ): _root_.scala.Unit = {
+    {
+      val __v = isbn
+      if ( __v != "" ) {
+        _output__.writeString( 1, __v )
+      }
+    };
+    {
+      val __v = title
+      if ( __v != "" ) {
+        _output__.writeString( 2, __v )
+      }
+    };
+    {
+      val __v = genre
+      if ( __v != "" ) {
+        _output__.writeString( 3, __v )
+      }
+    };
+    {
+      val __v = category
+      if ( __v != 0 ) {
+        _output__.writeInt32( 4, __v )
+      }
+    };
+    {
+      val __v = author
+      if ( __v != "" ) {
+        _output__.writeString( 5, __v )
+      }
+    };
+    {
+      val __v = publisher
+      if ( __v != "" ) {
+        _output__.writeString( 6, __v )
+      }
+    };
+    {
+      val __v = publicationDate
+      if ( __v != "" ) {
+        _output__.writeString( 7, __v )
+      }
+    };
+    {
+      val __v = isActive
+      if ( __v != false ) {
+        _output__.writeBool( 8, __v )
+      }
+    };
+  }
+  def mergeFrom( `_input__`: _root_.com.google.protobuf.CodedInputStream ): me.khazaddum.protobuf.scalapb.Book = {
+    var __isbn = this.isbn
+    var __title = this.title
+    var __genre = this.genre
+    var __category = this.category
+    var __author = this.author
+    var __publisher = this.publisher
+    var __publicationDate = this.publicationDate
+    var __isActive = this.isActive
+    var _done__ = false
+    while ( !_done__ ) {
+      val _tag__ = _input__.readTag()
+      _tag__ match {
+        case 0 => _done__ = true
+        case 10 =>
+          __isbn = _input__.readString()
+        case 18 =>
+          __title = _input__.readString()
+        case 26 =>
+          __genre = _input__.readString()
+        case 32 =>
+          __category = _input__.readInt32()
+        case 42 =>
+          __author = _input__.readString()
+        case 50 =>
+          __publisher = _input__.readString()
+        case 58 =>
+          __publicationDate = _input__.readString()
+        case 64 =>
+          __isActive = _input__.readBool()
+        case tag => _input__.skipField( tag )
       }
     }
-    def getField(__field: _root_.scalapb.descriptors.FieldDescriptor): _root_.scalapb.descriptors.PValue = {
-      _root_.scala.Predef.require(__field.containingMessage eq companion.scalaDescriptor)
-      (__field.number: @_root_.scala.unchecked) match {
-        case 1 => _root_.scalapb.descriptors.PString(isbn)
-        case 2 => _root_.scalapb.descriptors.PString(title)
-        case 3 => _root_.scalapb.descriptors.PString(genre)
-        case 4 => _root_.scalapb.descriptors.PInt(category)
-        case 5 => _root_.scalapb.descriptors.PString(author)
-        case 6 => _root_.scalapb.descriptors.PString(publisher)
-        case 7 => _root_.scalapb.descriptors.PString(publicationDate)
-        case 8 => _root_.scalapb.descriptors.PBoolean(isActive)
+    me.khazaddum.protobuf.scalapb.Book(
+      isbn = __isbn,
+      title = __title,
+      genre = __genre,
+      category = __category,
+      author = __author,
+      publisher = __publisher,
+      publicationDate = __publicationDate,
+      isActive = __isActive
+    )
+  }
+  def withIsbn( __v: _root_.scala.Predef.String ): Book = copy( isbn = __v )
+  def withTitle( __v: _root_.scala.Predef.String ): Book = copy( title = __v )
+  def withGenre( __v: _root_.scala.Predef.String ): Book = copy( genre = __v )
+  def withCategory( __v: _root_.scala.Int ): Book = copy( category = __v )
+  def withAuthor( __v: _root_.scala.Predef.String ): Book = copy( author = __v )
+  def withPublisher( __v: _root_.scala.Predef.String ): Book = copy( publisher = __v )
+  def withPublicationDate( __v: _root_.scala.Predef.String ): Book = copy( publicationDate = __v )
+  def withIsActive( __v: _root_.scala.Boolean ): Book = copy( isActive = __v )
+  def getFieldByNumber( __fieldNumber: _root_.scala.Int ): _root_.scala.Any = {
+    ( __fieldNumber: @_root_.scala.unchecked ) match {
+      case 1 => {
+        val __t = isbn
+        if ( __t != "" ) __t else null
+      }
+      case 2 => {
+        val __t = title
+        if ( __t != "" ) __t else null
+      }
+      case 3 => {
+        val __t = genre
+        if ( __t != "" ) __t else null
+      }
+      case 4 => {
+        val __t = category
+        if ( __t != 0 ) __t else null
+      }
+      case 5 => {
+        val __t = author
+        if ( __t != "" ) __t else null
+      }
+      case 6 => {
+        val __t = publisher
+        if ( __t != "" ) __t else null
+      }
+      case 7 => {
+        val __t = publicationDate
+        if ( __t != "" ) __t else null
+      }
+      case 8 => {
+        val __t = isActive
+        if ( __t != false ) __t else null
       }
     }
-    def toProtoString: _root_.scala.Predef.String = _root_.scalapb.TextFormat.printToUnicodeString(this)
-    def companion = me.khazaddum.protobuf.scalapb.Book
+  }
+  def getField( __field: _root_.scalapb.descriptors.FieldDescriptor ): _root_.scalapb.descriptors.PValue = {
+    _root_.scala.Predef.require( __field.containingMessage eq companion.scalaDescriptor )
+    ( __field.number: @_root_.scala.unchecked ) match {
+      case 1 => _root_.scalapb.descriptors.PString( isbn )
+      case 2 => _root_.scalapb.descriptors.PString( title )
+      case 3 => _root_.scalapb.descriptors.PString( genre )
+      case 4 => _root_.scalapb.descriptors.PInt( category )
+      case 5 => _root_.scalapb.descriptors.PString( author )
+      case 6 => _root_.scalapb.descriptors.PString( publisher )
+      case 7 => _root_.scalapb.descriptors.PString( publicationDate )
+      case 8 => _root_.scalapb.descriptors.PBoolean( isActive )
+    }
+  }
+  def toProtoString: _root_.scala.Predef.String = _root_.scalapb.TextFormat.printToUnicodeString( this )
+  def companion = me.khazaddum.protobuf.scalapb.Book
 }
 
 object Book extends scalapb.GeneratedMessageCompanion[me.khazaddum.protobuf.scalapb.Book] {
   implicit def messageCompanion: scalapb.GeneratedMessageCompanion[me.khazaddum.protobuf.scalapb.Book] = this
-  def fromFieldsMap(__fieldsMap: scala.collection.immutable.Map[_root_.com.google.protobuf.Descriptors.FieldDescriptor, _root_.scala.Any]): me.khazaddum.protobuf.scalapb.Book = {
-    _root_.scala.Predef.require(__fieldsMap.keys.forall(_.getContainingType() == javaDescriptor), "FieldDescriptor does not match message type.")
+  def fromFieldsMap( __fieldsMap: scala.collection.immutable.Map[_root_.com.google.protobuf.Descriptors.FieldDescriptor, _root_.scala.Any] ): me.khazaddum.protobuf.scalapb.Book = {
+    _root_.scala.Predef.require( __fieldsMap.keys.forall( _.getContainingType() == javaDescriptor ), "FieldDescriptor does not match message type." )
     val __fields = javaDescriptor.getFields
     me.khazaddum.protobuf.scalapb.Book(
-      __fieldsMap.getOrElse(__fields.get(0), "").asInstanceOf[_root_.scala.Predef.String],
-      __fieldsMap.getOrElse(__fields.get(1), "").asInstanceOf[_root_.scala.Predef.String],
-      __fieldsMap.getOrElse(__fields.get(2), "").asInstanceOf[_root_.scala.Predef.String],
-      __fieldsMap.getOrElse(__fields.get(3), 0).asInstanceOf[_root_.scala.Int],
-      __fieldsMap.getOrElse(__fields.get(4), "").asInstanceOf[_root_.scala.Predef.String],
-      __fieldsMap.getOrElse(__fields.get(5), "").asInstanceOf[_root_.scala.Predef.String],
-      __fieldsMap.getOrElse(__fields.get(6), "").asInstanceOf[_root_.scala.Predef.String],
-      __fieldsMap.getOrElse(__fields.get(7), false).asInstanceOf[_root_.scala.Boolean]
+      __fieldsMap.getOrElse( __fields.get( 0 ), "" ).asInstanceOf[_root_.scala.Predef.String],
+      __fieldsMap.getOrElse( __fields.get( 1 ), "" ).asInstanceOf[_root_.scala.Predef.String],
+      __fieldsMap.getOrElse( __fields.get( 2 ), "" ).asInstanceOf[_root_.scala.Predef.String],
+      __fieldsMap.getOrElse( __fields.get( 3 ), 0 ).asInstanceOf[_root_.scala.Int],
+      __fieldsMap.getOrElse( __fields.get( 4 ), "" ).asInstanceOf[_root_.scala.Predef.String],
+      __fieldsMap.getOrElse( __fields.get( 5 ), "" ).asInstanceOf[_root_.scala.Predef.String],
+      __fieldsMap.getOrElse( __fields.get( 6 ), "" ).asInstanceOf[_root_.scala.Predef.String],
+      __fieldsMap.getOrElse( __fields.get( 7 ), false ).asInstanceOf[_root_.scala.Boolean]
     )
   }
-  implicit def messageReads: _root_.scalapb.descriptors.Reads[me.khazaddum.protobuf.scalapb.Book] = _root_.scalapb.descriptors.Reads{
-    case _root_.scalapb.descriptors.PMessage(__fieldsMap) =>
-      _root_.scala.Predef.require(__fieldsMap.keys.forall(_.containingMessage == scalaDescriptor), "FieldDescriptor does not match message type.")
+  implicit def messageReads: _root_.scalapb.descriptors.Reads[me.khazaddum.protobuf.scalapb.Book] = _root_.scalapb.descriptors.Reads {
+    case _root_.scalapb.descriptors.PMessage( __fieldsMap ) =>
+      _root_.scala.Predef.require( __fieldsMap.keys.forall( _.containingMessage == scalaDescriptor ), "FieldDescriptor does not match message type." )
       me.khazaddum.protobuf.scalapb.Book(
-        __fieldsMap.get(scalaDescriptor.findFieldByNumber(1).get).map(_.as[_root_.scala.Predef.String]).getOrElse(""),
-        __fieldsMap.get(scalaDescriptor.findFieldByNumber(2).get).map(_.as[_root_.scala.Predef.String]).getOrElse(""),
-        __fieldsMap.get(scalaDescriptor.findFieldByNumber(3).get).map(_.as[_root_.scala.Predef.String]).getOrElse(""),
-        __fieldsMap.get(scalaDescriptor.findFieldByNumber(4).get).map(_.as[_root_.scala.Int]).getOrElse(0),
-        __fieldsMap.get(scalaDescriptor.findFieldByNumber(5).get).map(_.as[_root_.scala.Predef.String]).getOrElse(""),
-        __fieldsMap.get(scalaDescriptor.findFieldByNumber(6).get).map(_.as[_root_.scala.Predef.String]).getOrElse(""),
-        __fieldsMap.get(scalaDescriptor.findFieldByNumber(7).get).map(_.as[_root_.scala.Predef.String]).getOrElse(""),
-        __fieldsMap.get(scalaDescriptor.findFieldByNumber(8).get).map(_.as[_root_.scala.Boolean]).getOrElse(false)
+        __fieldsMap.get( scalaDescriptor.findFieldByNumber( 1 ).get ).map( _.as[_root_.scala.Predef.String] ).getOrElse( "" ),
+        __fieldsMap.get( scalaDescriptor.findFieldByNumber( 2 ).get ).map( _.as[_root_.scala.Predef.String] ).getOrElse( "" ),
+        __fieldsMap.get( scalaDescriptor.findFieldByNumber( 3 ).get ).map( _.as[_root_.scala.Predef.String] ).getOrElse( "" ),
+        __fieldsMap.get( scalaDescriptor.findFieldByNumber( 4 ).get ).map( _.as[_root_.scala.Int] ).getOrElse( 0 ),
+        __fieldsMap.get( scalaDescriptor.findFieldByNumber( 5 ).get ).map( _.as[_root_.scala.Predef.String] ).getOrElse( "" ),
+        __fieldsMap.get( scalaDescriptor.findFieldByNumber( 6 ).get ).map( _.as[_root_.scala.Predef.String] ).getOrElse( "" ),
+        __fieldsMap.get( scalaDescriptor.findFieldByNumber( 7 ).get ).map( _.as[_root_.scala.Predef.String] ).getOrElse( "" ),
+        __fieldsMap.get( scalaDescriptor.findFieldByNumber( 8 ).get ).map( _.as[_root_.scala.Boolean] ).getOrElse( false )
       )
-    case _ => throw new RuntimeException("Expected PMessage")
+    case _ => throw new RuntimeException( "Expected PMessage" )
   }
-  def javaDescriptor: _root_.com.google.protobuf.Descriptors.Descriptor = BookProto.javaDescriptor.getMessageTypes.get(0)
-  def scalaDescriptor: _root_.scalapb.descriptors.Descriptor = BookProto.scalaDescriptor.messages(0)
-  def messageCompanionForFieldNumber(__number: _root_.scala.Int): _root_.scalapb.GeneratedMessageCompanion[_] = throw new MatchError(__number)
+  def javaDescriptor: _root_.com.google.protobuf.Descriptors.Descriptor = BookProto.javaDescriptor.getMessageTypes.get( 0 )
+  def scalaDescriptor: _root_.scalapb.descriptors.Descriptor = BookProto.scalaDescriptor.messages( 0 )
+  def messageCompanionForFieldNumber( __number: _root_.scala.Int ): _root_.scalapb.GeneratedMessageCompanion[_] = throw new MatchError( __number )
   lazy val nestedMessagesCompanions: Seq[_root_.scalapb.GeneratedMessageCompanion[_ <: _root_.scalapb.GeneratedMessage]] = Seq.empty
-  def enumCompanionForFieldNumber(__fieldNumber: _root_.scala.Int): _root_.scalapb.GeneratedEnumCompanion[_] = throw new MatchError(__fieldNumber)
+  def enumCompanionForFieldNumber( __fieldNumber: _root_.scala.Int ): _root_.scalapb.GeneratedEnumCompanion[_] = throw new MatchError( __fieldNumber )
   lazy val defaultInstance = me.khazaddum.protobuf.scalapb.Book(
     isbn = "",
     title = "",
@@ -287,15 +287,15 @@ object Book extends scalapb.GeneratedMessageCompanion[me.khazaddum.protobuf.scal
     publicationDate = "",
     isActive = false
   )
-  implicit class BookLens[UpperPB](_l: _root_.scalapb.lenses.Lens[UpperPB, me.khazaddum.protobuf.scalapb.Book]) extends _root_.scalapb.lenses.ObjectLens[UpperPB, me.khazaddum.protobuf.scalapb.Book](_l) {
-    def isbn: _root_.scalapb.lenses.Lens[UpperPB, _root_.scala.Predef.String] = field(_.isbn)((c_, f_) => c_.copy(isbn = f_))
-    def title: _root_.scalapb.lenses.Lens[UpperPB, _root_.scala.Predef.String] = field(_.title)((c_, f_) => c_.copy(title = f_))
-    def genre: _root_.scalapb.lenses.Lens[UpperPB, _root_.scala.Predef.String] = field(_.genre)((c_, f_) => c_.copy(genre = f_))
-    def category: _root_.scalapb.lenses.Lens[UpperPB, _root_.scala.Int] = field(_.category)((c_, f_) => c_.copy(category = f_))
-    def author: _root_.scalapb.lenses.Lens[UpperPB, _root_.scala.Predef.String] = field(_.author)((c_, f_) => c_.copy(author = f_))
-    def publisher: _root_.scalapb.lenses.Lens[UpperPB, _root_.scala.Predef.String] = field(_.publisher)((c_, f_) => c_.copy(publisher = f_))
-    def publicationDate: _root_.scalapb.lenses.Lens[UpperPB, _root_.scala.Predef.String] = field(_.publicationDate)((c_, f_) => c_.copy(publicationDate = f_))
-    def isActive: _root_.scalapb.lenses.Lens[UpperPB, _root_.scala.Boolean] = field(_.isActive)((c_, f_) => c_.copy(isActive = f_))
+  implicit class BookLens[UpperPB]( _l: _root_.scalapb.lenses.Lens[UpperPB, me.khazaddum.protobuf.scalapb.Book] ) extends _root_.scalapb.lenses.ObjectLens[UpperPB, me.khazaddum.protobuf.scalapb.Book]( _l ) {
+    def isbn: _root_.scalapb.lenses.Lens[UpperPB, _root_.scala.Predef.String] = field( _.isbn )( ( c_, f_ ) => c_.copy( isbn = f_ ) )
+    def title: _root_.scalapb.lenses.Lens[UpperPB, _root_.scala.Predef.String] = field( _.title )( ( c_, f_ ) => c_.copy( title = f_ ) )
+    def genre: _root_.scalapb.lenses.Lens[UpperPB, _root_.scala.Predef.String] = field( _.genre )( ( c_, f_ ) => c_.copy( genre = f_ ) )
+    def category: _root_.scalapb.lenses.Lens[UpperPB, _root_.scala.Int] = field( _.category )( ( c_, f_ ) => c_.copy( category = f_ ) )
+    def author: _root_.scalapb.lenses.Lens[UpperPB, _root_.scala.Predef.String] = field( _.author )( ( c_, f_ ) => c_.copy( author = f_ ) )
+    def publisher: _root_.scalapb.lenses.Lens[UpperPB, _root_.scala.Predef.String] = field( _.publisher )( ( c_, f_ ) => c_.copy( publisher = f_ ) )
+    def publicationDate: _root_.scalapb.lenses.Lens[UpperPB, _root_.scala.Predef.String] = field( _.publicationDate )( ( c_, f_ ) => c_.copy( publicationDate = f_ ) )
+    def isActive: _root_.scalapb.lenses.Lens[UpperPB, _root_.scala.Boolean] = field( _.isActive )( ( c_, f_ ) => c_.copy( isActive = f_ ) )
   }
   final val ISBN_FIELD_NUMBER = 1
   final val TITLE_FIELD_NUMBER = 2
@@ -306,14 +306,14 @@ object Book extends scalapb.GeneratedMessageCompanion[me.khazaddum.protobuf.scal
   final val PUBLICATIONDATE_FIELD_NUMBER = 7
   final val ISACTIVE_FIELD_NUMBER = 8
   def of(
-    isbn: _root_.scala.Predef.String,
-    title: _root_.scala.Predef.String,
-    genre: _root_.scala.Predef.String,
-    category: _root_.scala.Int,
-    author: _root_.scala.Predef.String,
-    publisher: _root_.scala.Predef.String,
+    isbn:            _root_.scala.Predef.String,
+    title:           _root_.scala.Predef.String,
+    genre:           _root_.scala.Predef.String,
+    category:        _root_.scala.Int,
+    author:          _root_.scala.Predef.String,
+    publisher:       _root_.scala.Predef.String,
     publicationDate: _root_.scala.Predef.String,
-    isActive: _root_.scala.Boolean
+    isActive:        _root_.scala.Boolean
   ): _root_.me.khazaddum.protobuf.scalapb.Book = _root_.me.khazaddum.protobuf.scalapb.Book(
     isbn,
     title,

@@ -20,10 +20,10 @@ class ProtobufTest extends AnyFlatSpec with Matchers {
     )
 
     val encoded = book.toByteArray
-    println(s"Protobuf encoded: ${encoded.mkString("")}" )
+    println( s"Protobuf encoded: ${encoded.mkString( "" )}" )
 
     val decoded = Book.parseFrom( encoded )
-    println(s"Protobuf decoded: $decoded" )
+    println( s"Protobuf decoded: $decoded" )
 
     decoded.isbn shouldEqual book.isbn
     decoded.title shouldEqual book.title
