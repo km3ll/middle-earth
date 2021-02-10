@@ -46,21 +46,17 @@ scalacOptions ++= Seq(
   "-Xfuture"
 )
 
+enablePlugins( GatlingPlugin, ProtocPlugin )
+
 addCommandAlias( "me", "clean ; compile ; test:compile ; coverage ; test ; coverageReport")
 
 // coverage
 coverageEnabled := true
 coverageMinimum := 90
-coverageExcludedPackages := ".*AkkaHttpMain.*;"
-
-// gatling
-enablePlugins( GatlingPlugin, ProtocPlugin )
+coverageExcludedPackages := ".*AkkaHttpMain.*;.*Book.*;.*BookProto.*;"
 
 // protobuf
-PB.protoSources in Compile := Seq(
-  file( baseDirectory.value ) / "me" / "khazaddum" / "protobuf" )
-)
-
-PB.targets in Compile := Seq(
-  scalapb.gen(flatPackage = true /*, javaConversions = true*/ ) -> (target.value / "proto-generated")
+Compile / PB.protoSources := Seq(file("src/main/scala/me/khazaddum/protobuf"))
+Compile / PB.targets := Seq(
+  scalapb.gen( flatPackage = true ) -> ( target.value / "proto-generated")
 )
