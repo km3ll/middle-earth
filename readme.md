@@ -6,6 +6,7 @@
 
 * [packages](#packages)
 * [commands](#commands)
+* [tools](#tools)
 * [references](#references)
 
 ### packages
