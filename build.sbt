@@ -21,6 +21,7 @@ libraryDependencies ++= Seq(
   "com.github.blemale"          %% "scaffeine"                  % "4.0.2",
   "org.scalacheck"              %% "scalacheck"                 % "1.14.1",
   "com.typesafe.scala-logging"  %% "scala-logging"              % "3.9.2",
+  "com.thesamet.scalapb"        %% "scalapb-runtime"            % "0.9.4" % "protobuf",
   "org.scalatest"               %% "scalatest"                  % "3.2.2",
 )
 
@@ -45,10 +46,17 @@ scalacOptions ++= Seq(
   "-Xfuture"
 )
 
-coverageEnabled := true
-coverageMinimum := 90
-coverageExcludedPackages := ".*AkkaHttpMain.*;"
-
-enablePlugins( GatlingPlugin )
+enablePlugins( GatlingPlugin, ProtocPlugin )
 
 addCommandAlias( "me", "clean ; compile ; test:compile ; coverage ; test ; coverageReport")
+
+// coverage
+coverageEnabled := true
+coverageMinimum := 90
+coverageExcludedPackages := ".*AkkaHttpMain.*;.*Book.*;.*BookProto.*;"
+
+// protobuf
+Compile / PB.protoSources := Seq(file("src/main/scala/me/khazaddum/protobuf"))
+Compile / PB.targets := Seq(
+  scalapb.gen( flatPackage = true ) -> ( target.value / "proto-generated")
+)

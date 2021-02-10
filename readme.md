@@ -16,6 +16,7 @@
 - eventstore
 - frdm
 - gatling
+- protobuf
 - scaffeine
 - scalacheck 
 
@@ -45,6 +46,7 @@ sbt "gatling:testOnly me.khazaddum.gatling.AppSimulation"
 - [gatling](https://gatling.io/docs/current/extensions/sbt_plugin/)
 - [jmeter user-manual](https://jmeter.apache.org/usermanual/index.html)
 - [jmeter controllers](https://www.guru99.com/controllers-in-jmeter.html)
+- [sbt-protoc](https://github.com/thesamet/sbt-protoc)
 - [scaffeine cache](https://github.com/blemale/scaffeine)
 - [scalacheck](https://github.com/typelevel/scalacheck/blob/master/doc/UserGuide.md)
 - [scala-logging](https://github.com/lightbend/scala-logging)
