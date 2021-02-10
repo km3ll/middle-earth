@@ -90,16 +90,6 @@ class ScalaCheckTest extends AnyFlatSpec with Matchers {
 
   }
 
-  it should "include 'negNum'" taggedAs UnitTest in {
-
-    val NegativeNumberGenerator = for {
-      number <- Gen.negNum[Int]
-    } yield number
-
-    println( s"negNum sample: ${NegativeNumberGenerator.sample.get}" )
-
-  }
-
   it should "include 'chooseNum'" taggedAs UnitTest in {
 
     val NumberGenerator = for {
