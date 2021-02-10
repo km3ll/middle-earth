@@ -16,6 +16,7 @@
 - eventstore
 - frdm
 - gatling
+- protobuf
 - scaffeine
 - scalacheck 
 
@@ -48,6 +49,7 @@ sbt "gatling:testOnly me.khazaddum.gatling.AppSimulation"
 - [scaffeine cache](https://github.com/blemale/scaffeine)
 - [scalacheck](https://github.com/typelevel/scalacheck/blob/master/doc/UserGuide.md)
 - [scala-logging](https://github.com/lightbend/scala-logging)
+- [scalapb](https://scalapb.github.io/docs/sbt-settings/)
 - [scalatest](https://www.scalatest.org/user_guide)
 - [scoverage](https://github.com/scoverage/sbt-scoverage)
 - [shields-io](https://shields.io/category/coverage)
