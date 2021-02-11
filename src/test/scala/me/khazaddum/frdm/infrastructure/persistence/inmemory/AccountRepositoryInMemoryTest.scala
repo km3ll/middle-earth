@@ -1,13 +1,12 @@
-package me.khazaddum.frdm.infrastructure.persistence
+package me.khazaddum.frdm.infrastructure.persistence.inmemory
 
 import me.khazaddum.frdm.domain.model.Account
 import me.khazaddum.frdm.generators.GenAccount
 import org.scalacheck.Prop.forAll
 import org.scalacheck.Properties
-
+import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.{ Await, Future }
 import scala.concurrent.duration._
-import scala.concurrent.ExecutionContext.Implicits.global
 
 object AccountRepositoryInMemoryTest extends Properties( "In-Memory Account repository" ) {
 
