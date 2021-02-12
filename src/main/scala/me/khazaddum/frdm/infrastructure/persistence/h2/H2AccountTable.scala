@@ -4,7 +4,7 @@ import slick.jdbc.H2Profile.api._
 
 class H2AccountTable( tag: Tag ) extends Table[H2AccountDao]( tag, "tbl_accounts" ) {
 
-  def account_type = column[String]( "account_type", O.PrimaryKey )
+  def account_type = column[String]( "account_type" )
   def account_no = column[String]( "account_no", O.PrimaryKey )
   def date_of_open = column[String]( "date_of_open" )
   def date_of_close = column[Option[String]]( "date_of_close" )

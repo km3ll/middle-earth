@@ -59,7 +59,7 @@ trait H2Mappers {
 
   }
 
-  def DaoToAccount( dao: H2AccountDao ): Either[String, Account] = {
+  def daoToAccount( dao: H2AccountDao ): Either[String, Account] = {
     for {
       accType <- parseType( dao.account_type )
       openDate <- parseDate( dao.date_of_open )
