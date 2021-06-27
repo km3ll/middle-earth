@@ -1,10 +1,10 @@
-package me.khazaddum.frdm.infrastructure.persistence
+package me.khazaddum.frdm.infrastructure.persistence.inmemory
 
 import me.khazaddum.frdm.domain.model.Account
 import me.khazaddum.frdm.domain.repository.AccountRepository
+import scala.concurrent.ExecutionContext.Implicits.global
 import scala.collection.mutable
 import scala.concurrent.Future
-import scala.concurrent.ExecutionContext.Implicits.global
 
 case class AccountRepositoryInMemory() extends AccountRepository {
 
