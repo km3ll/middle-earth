@@ -10,8 +10,7 @@ libraryDependencies ++= Seq(
 // compiler
 scalacOptions ++= commonOptions
 
-addSbtPlugin("org.scalariform" % "sbt-scalariform" % "1.8.2")
-addSbtPlugin("org.scoverage" % "sbt-scoverage" % "1.6.1")
+//addSbtPlugin("org.scoverage" % "sbt-scoverage" % "1.6.1")
 
 //FIXME
 //addCommandAlias( "me", "clean ; compile ; test:compile ; coverage ; test ; coverageReport")

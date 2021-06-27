@@ -326,4 +326,4 @@ object Book extends scalapb.GeneratedMessageCompanion[me.khazaddum.protobuf.scal
     isActive
   )
 }
-*/
+*/ 
