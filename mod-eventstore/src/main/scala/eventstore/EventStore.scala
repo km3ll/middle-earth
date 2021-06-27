@@ -1,4 +1,4 @@
-package me.khazaddum.eventstore
+package eventstore
 
 import scala.collection.concurrent.TrieMap
 import cats.syntax.either._

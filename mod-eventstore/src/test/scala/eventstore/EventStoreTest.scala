@@ -1,14 +1,12 @@
-package me.khazaddum.eventstore
+package eventstore
 
 import java.util.UUID
-
-import me.khazaddum.Tags.UnitTest
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
 
 class EventStoreTest extends AnyFlatSpec with Matchers {
 
-  "Event store" should "put en event and then get it" taggedAs UnitTest in {
+  "Event store" should "put en event and then get it" in {
 
     val store: EventStore[String] = EventStoreInMemory.apply[String]
     val event: Event = Event( name = "OrderPaid", content = OrderPaid( 1100L, 10.50 ) )
@@ -21,7 +19,7 @@ class EventStoreTest extends AnyFlatSpec with Matchers {
 
   }
 
-  it should "return an empty list when getting a non-existent key" taggedAs UnitTest in {
+  it should "return an empty list when getting a non-existent key" in {
 
     val store: EventStore[String] = EventStoreInMemory.apply[String]
 
@@ -29,7 +27,7 @@ class EventStoreTest extends AnyFlatSpec with Matchers {
 
   }
 
-  it should "return all events" taggedAs UnitTest in {
+  it should "return all events" in {
 
     val store: EventStore[String] = EventStoreInMemory.apply[String]
     val event1 = Event( name = "OrderPaid", content = OrderPaid( 101L, 5.0 ) )
@@ -43,7 +41,7 @@ class EventStoreTest extends AnyFlatSpec with Matchers {
 
   }
 
-  it should "return multiple events with the same key" taggedAs UnitTest in {
+  it should "return multiple events with the same key" in {
 
     val store: EventStore[String] = EventStoreInMemory.apply[String]
 

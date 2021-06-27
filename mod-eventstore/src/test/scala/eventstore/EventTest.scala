@@ -1,12 +1,11 @@
-package me.khazaddum.eventstore
+package eventstore
 
-import me.khazaddum.Tags.UnitTest
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
 
 class EventTest extends AnyFlatSpec with Matchers {
 
-  "Builder" should "create an event" taggedAs UnitTest in {
+  "Builder" should "create an event" in {
 
     val event = Event( name = "OrderPaid", content = OrderPaid( 1100L, 10.50 ) )
 

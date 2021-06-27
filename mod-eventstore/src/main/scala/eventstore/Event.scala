@@ -1,4 +1,4 @@
-package me.khazaddum.eventstore
+package eventstore
 
 import java.text.SimpleDateFormat
 import java.util.{ Calendar, UUID }
