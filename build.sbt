@@ -66,7 +66,7 @@ Compile / PB.targets := Seq(
 // modules
 lazy val root = project
   .in(file("."))
-  .aggregate(akkaHttp, core, cqrs, eventStore, frdm, scaffeine)
+  .aggregate(akkaHttp, core, cqrs, eventStore, frdm, gatling, scaffeine)
 
 lazy val core = project.in( file( "core-domain" ) )
 
@@ -74,4 +74,5 @@ lazy val akkaHttp = project.in( file( "mod-akka-http" ) )
 lazy val cqrs = project.in( file( "mod-cqrs" ) )
 lazy val eventStore = project.in( file( "mod-event-store" ) )
 lazy val frdm = project.in( file( "mod-frdm" ) )
+lazy val gatling = project.in( file( "mod-gatling" ) )
 lazy val scaffeine = project.in( file( "mod-scaffeine" ) )

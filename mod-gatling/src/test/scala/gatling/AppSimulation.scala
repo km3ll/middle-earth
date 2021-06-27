@@ -1,9 +1,8 @@
-package me.khazaddum.gatling
+package gatling
 
 import io.gatling.core.Predef.{ Simulation, _ }
 import io.gatling.core.structure.ScenarioBuilder
 import io.gatling.http.Predef._
-
 import scala.concurrent.duration._
 
 class AppSimulation extends Simulation {
