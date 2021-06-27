@@ -1,7 +1,6 @@
-package me.khazaddum.akka.http
+package akkahttp
 
-import me.khazaddum.akka.http.HttpDto._
-import io.circe._
+import akkahttp.HttpDto._
 import io.circe.generic.semiauto._
 import io.circe.{ Decoder, Encoder }
 

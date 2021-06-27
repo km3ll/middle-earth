@@ -1,15 +1,14 @@
-package me.khazaddum.akka.http
+package akkahttp
 
 import java.time.ZonedDateTime
 import java.util.UUID
 
+import akkahttp.HttpDto._
 import akka.http.scaladsl.model.StatusCodes.OK
-import akka.http.scaladsl.server.Directives.{ complete, get }
+import akka.http.scaladsl.server.Directives.{ complete, get, _ }
 import akka.http.scaladsl.server.Route
-import de.heikoseeberger.akkahttpcirce.FailFastCirceSupport._
-import akka.http.scaladsl.server.Directives._
 import com.typesafe.scalalogging.LazyLogging
-import me.khazaddum.akka.http.HttpDto._
+import de.heikoseeberger.akkahttpcirce.FailFastCirceSupport._
 
 trait HttpRoutes extends HttpJsonParser with LazyLogging {
 

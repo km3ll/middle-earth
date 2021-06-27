@@ -1,16 +1,15 @@
-package me.khazaddum.akka.http
+package akkahttp
 
 import io.circe.Decoder.Result
 import io.circe.Json
-import me.khazaddum.Tags.UnitTest
-import me.khazaddum.akka.http.HttpDto._
+import HttpDto._
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
 import io.circe.syntax._
 
 class HttpJsonParserTest extends AnyFlatSpec with Matchers with HttpJsonParser {
 
-  "JSON parser" should "encode and decode a StatusResponse" taggedAs UnitTest in {
+  "JSON parser" should "encode and decode a StatusResponse" in {
 
     val status: Status = Status( "2021-02-05T15:35:34.701-05:00[America/Bogota]", "UP!" )
 
@@ -25,7 +24,7 @@ class HttpJsonParserTest extends AnyFlatSpec with Matchers with HttpJsonParser {
 
   }
 
-  it should "encode and decode a PostItemRequest" taggedAs UnitTest in {
+  it should "encode and decode a PostItemRequest" in {
 
     val request = PostItemRequest( Item( "88001", "Latte", true, 3.50 ) )
 
@@ -40,7 +39,7 @@ class HttpJsonParserTest extends AnyFlatSpec with Matchers with HttpJsonParser {
 
   }
 
-  it should "encode and decode a PostItemResponse" taggedAs UnitTest in {
+  it should "encode and decode a PostItemResponse" in {
 
     val response = PostItemResponse(
       dateTime = "2021-02-05T15:35:34.701-05:00[America/Bogota]",
@@ -58,7 +57,7 @@ class HttpJsonParserTest extends AnyFlatSpec with Matchers with HttpJsonParser {
 
   }
 
-  it should "encode and decode a GetItemResponse" taggedAs UnitTest in {
+  it should "encode and decode a GetItemResponse" in {
 
     val response = GetItemResponse(
       dateTime = "2021-02-05T15:35:34.701-05:00[America/Bogota]",

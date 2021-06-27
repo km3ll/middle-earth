@@ -1,4 +1,4 @@
-package me.khazaddum.akka.http
+package akkahttp
 
 import akka.Done
 import akka.actor.{ ActorSystem, Terminated }

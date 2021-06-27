@@ -1,4 +1,4 @@
-name := "eventstore"
+name := "eventStore"
 version := "0.1"
 
 libraryDependencies ++= Seq(

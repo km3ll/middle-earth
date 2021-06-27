@@ -1,4 +1,4 @@
-package me.khazaddum.akka.http
+package akkahttp
 
 object HttpDto {
 
