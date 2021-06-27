@@ -19,7 +19,6 @@ libraryDependencies ++= Seq(
   "io.gatling.highcharts"       %  "gatling-charts-highcharts"  % "2.3.1",
   "io.gatling"                  %  "gatling-test-framework"     % "2.3.1",
   "com.h2database"              % "h2"                          % "1.4.189",
-  "com.github.blemale"          %% "scaffeine"                  % "4.0.2",
   "org.scalacheck"              %% "scalacheck"                 % "1.14.1",
   "com.typesafe.scala-logging"  %% "scala-logging"              % "3.9.2",
   "com.thesamet.scalapb"        %% "scalapb-runtime"            % "0.9.4" % "protobuf",
@@ -62,3 +61,12 @@ Compile / PB.protoSources := Seq(file("src/main/scala/me/khazaddum/protobuf"))
 Compile / PB.targets := Seq(
   scalapb.gen( flatPackage = true ) -> ( target.value / "proto-generated")
 )
+
+
+// modules
+lazy val root = project
+  .in(file("."))
+  .aggregate(core, scaffeine)
+
+lazy val core = project.in( file( "core-domain" ) )
+lazy val scaffeine = project.in( file( "mod-scaffeine" ) )

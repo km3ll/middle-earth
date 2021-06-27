@@ -1,9 +1,6 @@
-package me.khazaddum.scaffeine
-
 import org.scalatest.flatspec.AsyncFlatSpec
 import org.scalatest.matchers.should.Matchers
 import com.github.blemale.scaffeine.{ AsyncLoadingCache, Cache, LoadingCache, Scaffeine }
-import me.khazaddum.Tags.UnitTest
 import org.scalatest.concurrent.ScalaFutures
 
 import scala.concurrent.Future
@@ -16,7 +13,7 @@ class ScaffeineTest extends AsyncFlatSpec with ScalaFutures with Matchers {
   Entries are manually added and are stored in the cache until either evicted or manually invalidated.
   I put and get values to/from cache.
   */
-  "Cache" should "be created with basic builder" taggedAs UnitTest in {
+  "Cache" should "be created with basic builder" in {
 
     val cache: Cache[Int, String] =
       Scaffeine()
@@ -27,7 +24,7 @@ class ScaffeineTest extends AsyncFlatSpec with ScalaFutures with Matchers {
 
   }
 
-  it should "enable build properties" taggedAs UnitTest in {
+  it should "enable build properties" in {
 
     val cache: Cache[Int, String] =
       Scaffeine()
@@ -46,7 +43,7 @@ class ScaffeineTest extends AsyncFlatSpec with ScalaFutures with Matchers {
 
   }
 
-  it should "enable operations with Maps" taggedAs UnitTest in {
+  it should "enable operations with Maps" in {
 
     val cache: Cache[Int, String] =
       Scaffeine()
@@ -70,7 +67,7 @@ class ScaffeineTest extends AsyncFlatSpec with ScalaFutures with Matchers {
 
   }
 
-  it should "allow key invalidation" taggedAs UnitTest in {
+  it should "allow key invalidation" in {
 
     val cache: Cache[Int, String] =
       Scaffeine()
@@ -107,7 +104,7 @@ class ScaffeineTest extends AsyncFlatSpec with ScalaFutures with Matchers {
   and they are stored in the cache until either evicted or manually invalidated.
   I provide a loader function to (1) get a value and (2) automatically cache it
   */
-  "LoadingCache" should "be created with basic builder" taggedAs UnitTest in {
+  "LoadingCache" should "be created with basic builder" in {
 
     val repository: Map[Int, String] = Map( 1 -> "foo" )
 
@@ -132,7 +129,7 @@ class ScaffeineTest extends AsyncFlatSpec with ScalaFutures with Matchers {
 
   }
 
-  "AsyncLoadingCache" should "be created with Synchronous loader" taggedAs UnitTest in {
+  "AsyncLoadingCache" should "be created with Synchronous loader" in {
 
     val repository: Map[Int, String] = Map( 1 -> "foo", 2 -> "bar" )
 
@@ -155,7 +152,7 @@ class ScaffeineTest extends AsyncFlatSpec with ScalaFutures with Matchers {
 
   }
 
-  it should "be created with Asynchronous loader" taggedAs UnitTest in {
+  it should "be created with Asynchronous loader" in {
 
     val repository: Map[Int, String] = Map( 1 -> "foo" )
 
