@@ -1,24 +1,10 @@
-# middle-earth
-
-![statementcoverage](https://img.shields.io/badge/statement%20coverage-100.00%25-brightgreen.svg)![statementcoverage](https://img.shields.io/badge/branch%20coverage-100.00%25-brightgreen.svg)
+# khazad-dum
 
 ## Table of contents
 
-* [packages](#packages)
 * [commands](#commands)
 * [tools](#tools)
 * [references](#references)
-
-### packages
-
-- akka-http
-- cqrs
-- eventstore
-- frdm
-- gatling
-- protobuf
-- scaffeine
-- scalacheck 
 
 ### commands
 
@@ -31,11 +17,22 @@ sbt gatling:test
 sbt "gatling:testOnly me.khazaddum.gatling.AppSimulation"
 ```
 
-### tools
+### backlog
 
-- jmeter
-- postman
-- swagger
+- akka-actors
+- akka-streams
+- cassandra
+- context-trace
+- elastic-search
+- kafka
+- kafka-streams
+- metrics
+- monix
+- monocle
+- rpc
+- rabbit-mq
+- spark
+
 
 ### references
 
