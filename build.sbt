@@ -10,6 +10,9 @@ libraryDependencies ++= Seq(
   "org.scalatest"   %% "scalatest"  % "3.2.2"
 )
 
+// alias
+addCommandAlias( "me", "clean ; compile ; test:compile ;")
+
 // compiler
 scalacOptions ++= commonOptions
 
