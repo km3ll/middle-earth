@@ -66,7 +66,9 @@ Compile / PB.targets := Seq(
 // modules
 lazy val root = project
   .in(file("."))
-  .aggregate(core, scaffeine)
+  .aggregate(core, cqrs, frdm, scaffeine)
 
 lazy val core = project.in( file( "core-domain" ) )
+lazy val cqrs = project.in( file( "mod-cqrs" ) )
+lazy val frdm = project.in( file( "mod-frdm" ) )
 lazy val scaffeine = project.in( file( "mod-scaffeine" ) )

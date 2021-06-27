@@ -1,4 +1,4 @@
-package me.khazaddum.cqrs
+package cqrs
 
 import java.util.UUID
 

@@ -1,9 +1,9 @@
-package me.khazaddum.cqrs.query
+package cqrs.query
 
 import cats.syntax.either._
 import com.typesafe.scalalogging.LazyLogging
-import me.khazaddum.cqrs._
-import me.khazaddum.cqrs.dto.{ CoffeeNames, CqrsDto }
+import cqrs._
+import cqrs.dto.{ CoffeeNames, CqrsDto }
 
 import scala.concurrent.Future
 

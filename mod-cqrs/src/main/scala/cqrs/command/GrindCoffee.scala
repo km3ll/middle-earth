@@ -1,11 +1,11 @@
-package me.khazaddum.cqrs.command
+package cqrs.command
 
 import java.util.UUID
 
 import cats.syntax.either._
 import com.typesafe.scalalogging.LazyLogging
-import me.khazaddum.cqrs._
-import me.khazaddum.cqrs.dto.{ CqrsDto, SuccessDto }
+import cqrs._
+import cqrs.dto.{ CqrsDto, SuccessDto }
 
 import scala.concurrent.Future
 

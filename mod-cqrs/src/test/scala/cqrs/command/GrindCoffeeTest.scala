@@ -1,15 +1,14 @@
-package me.khazaddum.cqrs.command
+package cqrs.command
 
-import me.khazaddum.Tags.UnitTest
-import me.khazaddum.cqrs.dto.CqrsDto
-import me.khazaddum.cqrs.{ CommandK, Context, Environment }
+import cqrs.dto.CqrsDto
+import cqrs.{ CommandK, Context, Environment }
 import org.scalatest.concurrent.ScalaFutures
 import org.scalatest.flatspec.AsyncFlatSpec
 import org.scalatest.matchers.should.Matchers
 
 class GrindCoffeeTest extends AsyncFlatSpec with ScalaFutures with Matchers {
 
-  "GrindCoffee Command" should "grind beans" taggedAs UnitTest in {
+  "GrindCoffee Command" should "grind beans" in {
 
     // Step 1. Load
     val environment = Environment.local()
@@ -26,7 +25,7 @@ class GrindCoffeeTest extends AsyncFlatSpec with ScalaFutures with Matchers {
 
   }
 
-  it should "not grind baked beans " taggedAs UnitTest in {
+  it should "not grind baked beans " in {
 
     // Step 1. Load
     val environment = Environment.local()

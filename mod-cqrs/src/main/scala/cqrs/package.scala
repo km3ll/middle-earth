@@ -1,7 +1,4 @@
-package me.khazaddum
-
 import cats.data.{ EitherT, Kleisli }
-
 import scala.concurrent.Future
 
 package object cqrs {

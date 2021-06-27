@@ -1,4 +1,4 @@
-package me.khazaddum.cqrs
+package cqrs
 
 case class CqrsEvent(
   id:   String,

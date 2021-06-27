@@ -1,4 +1,4 @@
-package me.khazaddum.cqrs
+package cqrs
 
 import com.typesafe.config.{ Config, ConfigFactory }
 

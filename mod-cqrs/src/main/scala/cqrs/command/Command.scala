@@ -1,8 +1,8 @@
-package me.khazaddum.cqrs.command
+package cqrs.command
 
 import cats.data.{ EitherT, Kleisli }
-import me.khazaddum.cqrs.dto.CqrsDto
-import me.khazaddum.cqrs.{ CommandK, Context, Environment, Response }
+import cqrs.dto.CqrsDto
+import cqrs.{ CommandK, Context, Environment, Response }
 
 import scala.concurrent.Future
 
