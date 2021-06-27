@@ -1,11 +1,9 @@
-package me.khazaddum.scalacheck
+package scalacheck
 
+import java.text.SimpleDateFormat
 import java.util
 import java.util.UUID
-import java.text.SimpleDateFormat
 
-import me.khazaddum.Tags.UnitTest
-import org.scalacheck.{ Arbitrary, Gen }
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
 

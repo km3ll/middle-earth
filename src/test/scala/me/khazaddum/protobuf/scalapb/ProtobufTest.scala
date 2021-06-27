@@ -1,12 +1,11 @@
 package me.khazaddum.protobuf.scalapb
 
-import me.khazaddum.Tags.UnitTest
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
 
 class ProtobufTest extends AnyFlatSpec with Matchers {
 
-  "Book" should "encoded and decoded to ProtoBuf format" taggedAs UnitTest in {
+  "Book" should "encoded and decoded to ProtoBuf format" in {
 
     val book = Book(
       isbn = "0395489334",

@@ -9,7 +9,7 @@ object AppSteps {
   def getStatusManyTimes: ChainBuilder = repeat( 100 ) {
     exec(
       http( "GET status" )
-        .get("/status")
+        .get( "/status" )
         .check( status.is( 200 ) )
     )
   }

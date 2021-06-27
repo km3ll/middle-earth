@@ -1,4 +1,4 @@
-package me.khazaddum
+package scalacheck
 
 import org.scalatest.Tag
 
