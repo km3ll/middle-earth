@@ -3,7 +3,7 @@
 ## Table of contents
 
 * [commands](#commands)
-* [tools](#tools)
+* [backlog](#backlog)
 * [references](#references)
 
 ### commands
