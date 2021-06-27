@@ -8,14 +8,11 @@
 
 ### commands
 
-```
-sbt me
-sbt "testOnly -- -n unit"
-sbt "testOnly -- -n component"
-
-sbt gatling:test
-sbt "gatling:testOnly me.khazaddum.gatling.AppSimulation"
-```
+- compile all modules
+  - `sbt me`
+- run tests
+  - `sbt "testOnly -- -n unit"`
+  - `sbt "testOnly -- -n component"`
 
 ### backlog
 
