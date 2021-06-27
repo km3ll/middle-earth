@@ -3,7 +3,8 @@
 //
 // Protofile syntax: PROTO3
 
-package me.khazaddum.protobuf.scalapb
+/*
+package protobuf.scalapb
 
 object BookProto extends _root_.scalapb.GeneratedFileObject {
   lazy val dependencies: Seq[_root_.scalapb.GeneratedFileObject] = Seq()
@@ -31,3 +32,4 @@ object BookProto extends _root_.scalapb.GeneratedFileObject {
   @deprecated( "Use javaDescriptor instead. In a future version this will refer to scalaDescriptor.", "ScalaPB 0.5.47" )
   def descriptor: com.google.protobuf.Descriptors.FileDescriptor = javaDescriptor
 }
+*/

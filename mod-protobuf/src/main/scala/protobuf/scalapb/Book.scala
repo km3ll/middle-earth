@@ -3,8 +3,9 @@
 //
 // Protofile syntax: PROTO3
 
-package me.khazaddum.protobuf.scalapb
+package protobuf.scalapb
 
+/*
 @SerialVersionUID( 0L )
 final case class Book(
   isbn:            _root_.scala.Predef.String = "",
@@ -325,3 +326,4 @@ object Book extends scalapb.GeneratedMessageCompanion[me.khazaddum.protobuf.scal
     isActive
   )
 }
+*/

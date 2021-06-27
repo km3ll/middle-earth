@@ -1,14 +1,19 @@
-name := "gatling"
+name := "protobuf"
 version := "0.1"
 
 libraryDependencies ++= Seq(
-  "io.gatling.highcharts" %  "gatling-charts-highcharts"  % "2.3.1",
-  "io.gatling"            %  "gatling-test-framework"     % "2.3.1",
-  "org.scalatest"         %% "scalatest"                  % "3.2.2"
+  "com.thesamet.scalapb"  %%  "compilerplugin"  % "0.9.4",
+  "org.scalatest"         %%  "scalatest"       % "3.2.2"
 )
 
-//addSbtPlugin("io.gatling" % "gatling-sbt" % "3.2.1")
-//enablePlugins( GatlingPlugin )
+//addSbtPlugin("com.thesamet" % "sbt-protoc" % "0.99.25")
+//enablePlugins( ProtocPlugin )
+
+// protobuf
+//Compile / PB.protoSources := Seq(file("src/main/scala/me/khazaddum/protobuf"))
+//Compile / PB.targets := Seq(
+//  scalapb.gen( flatPackage = true ) -> ( target.value / "proto-generated")
+//)
 
 scalacOptions ++= Seq(
   "-deprecation",

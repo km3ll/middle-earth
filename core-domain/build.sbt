@@ -1,14 +1,20 @@
-name := "gatling"
+name := "core"
 version := "0.1"
 
 libraryDependencies ++= Seq(
-  "io.gatling.highcharts" %  "gatling-charts-highcharts"  % "2.3.1",
-  "io.gatling"            %  "gatling-test-framework"     % "2.3.1",
-  "org.scalatest"         %% "scalatest"                  % "3.2.2"
+  "org.scalatest"       %%  "scalatest" % "3.2.2"
 )
 
-//addSbtPlugin("io.gatling" % "gatling-sbt" % "3.2.1")
-//enablePlugins( GatlingPlugin )
+addSbtPlugin("org.scalariform" % "sbt-scalariform" % "1.8.2")
+addSbtPlugin("org.scoverage" % "sbt-scoverage" % "1.6.1")
+
+//FIXME
+//addCommandAlias( "me", "clean ; compile ; test:compile ; coverage ; test ; coverageReport")
+
+// coverage
+//coverageEnabled := true
+//coverageMinimum := 90
+//coverageExcludedPackages := ".*AkkaHttpMain.*;.*Book.*;.*BookProto.*;"
 
 scalacOptions ++= Seq(
   "-deprecation",
