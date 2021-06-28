@@ -9,7 +9,7 @@
 ### commands
 
 - compile all modules
-  - `sbt me`
+  - `sbt build`
 - run tests
   - `sbt "testOnly -- -n unit"`
   - `sbt "testOnly -- -n component"`

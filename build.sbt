@@ -3,7 +3,7 @@ import SbtCommon._
 organization := "middle-earth"
 name := "khazad-dum"
 version := "0.1"
-scalaVersion := "2.12.6"
+scalaVersion := "2.12.8"
 
 libraryDependencies ++= Seq(
   "com.typesafe"    %  "config"     % "1.3.2",
@@ -29,13 +29,5 @@ lazy val scaffeine  = project.in( file( "mod-scaffeine" ) )
 lazy val scalacheck = project.in( file( "mod-scalacheck" ) )
 
 // alias
-addCommandAlias( "me", "clean ; compile ; test:compile ;")
-addCommandAlias( "core", "core/clean ; core/compile ; core/test:compile ; core/test ;")
-addCommandAlias( "akkahttp", "akkahttp/clean ; akkahttp/compile ; akkahttp/test:compile ; akkahttp/test ;")
-addCommandAlias( "cqrs", "cqrs/clean ; cqrs/compile ; cqrs/test:compile ; cqrs/test ;")
-addCommandAlias( "eventstore", "eventstore/clean ; eventstore/compile ; eventstore/test:compile ; eventstore/test ;")
-addCommandAlias( "frdm", "frdm/clean ; frdm/compile ; frdm/test:compile ; frdm/test ;")
-addCommandAlias( "gatling", "gatling/clean ; gatling/compile ; gatling/test:compile ; gatling/test ;")
-addCommandAlias( "protobuf", "protobuf/clean ; protobuf/compile ; protobuf/test:compile ; protobuf/test ;")
-addCommandAlias( "scaffeine", "scaffeine/clean ; scaffeine/compile ; scaffeine/test:compile ; scaffeine/test ;")
-addCommandAlias( "scalacheck", "scalacheck/clean ; scalacheck/compile ; scalacheck/test:compile ; scalacheck/test ;")
+addCommandAlias( "build", "clean ; compile ; test:compile ;")
+addCommandAlias( "core", "core/clean ; core/compile ; core/test:compile ; core/coverageReport")
