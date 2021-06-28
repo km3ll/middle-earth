@@ -10,9 +10,6 @@ libraryDependencies ++= Seq(
   "org.scalatest"   %% "scalatest"  % "3.2.2"
 )
 
-// alias
-addCommandAlias( "me", "clean ; compile ; test:compile ;")
-
 // compiler
 scalacOptions ++= commonOptions
 
@@ -30,3 +27,15 @@ lazy val gatling    = project.in( file( "mod-gatling" ) )
 lazy val protobuf   = project.in( file( "mod-protobuf" ) )
 lazy val scaffeine  = project.in( file( "mod-scaffeine" ) )
 lazy val scalacheck = project.in( file( "mod-scalacheck" ) )
+
+// alias
+addCommandAlias( "me", "clean ; compile ; test:compile ;")
+addCommandAlias( "core", "core/clean ; core/compile ; core/test:compile ; core/test ;")
+addCommandAlias( "akkahttp", "akkahttp/clean ; akkahttp/compile ; akkahttp/test:compile ; akkahttp/test ;")
+addCommandAlias( "cqrs", "cqrs/clean ; cqrs/compile ; cqrs/test:compile ; cqrs/test ;")
+addCommandAlias( "eventstore", "eventstore/clean ; eventstore/compile ; eventstore/test:compile ; eventstore/test ;")
+addCommandAlias( "frdm", "frdm/clean ; frdm/compile ; frdm/test:compile ; frdm/test ;")
+addCommandAlias( "gatling", "gatling/clean ; gatling/compile ; gatling/test:compile ; gatling/test ;")
+addCommandAlias( "protobuf", "protobuf/clean ; protobuf/compile ; protobuf/test:compile ; protobuf/test ;")
+addCommandAlias( "scaffeine", "scaffeine/clean ; scaffeine/compile ; scaffeine/test:compile ; scaffeine/test ;")
+addCommandAlias( "scalacheck", "scalacheck/clean ; scalacheck/compile ; scalacheck/test:compile ; scalacheck/test ;")
