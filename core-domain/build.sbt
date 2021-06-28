@@ -1,21 +1,17 @@
 import SbtCommon._
+import scoverage.ScoverageKeys
 
 name := "core"
 version := "0.1"
 
 libraryDependencies ++= Seq(
-  "org.scalatest"       %%  "scalatest" % "3.2.2"
+  "org.scalatest"   %%  "scalatest" % "3.2.2"
 )
 
 // compiler
 scalacOptions ++= commonOptions
 
-//addSbtPlugin("org.scoverage" % "sbt-scoverage" % "1.6.1")
-
-//FIXME
-//addCommandAlias( "me", "clean ; compile ; test:compile ; coverage ; test ; coverageReport")
-
-// coverage
-//coverageEnabled := true
-//coverageMinimum := 90
-//coverageExcludedPackages := ".*AkkaHttpMain.*;.*Book.*;.*BookProto.*;"
+// plugins
+coverageEnabled := true
+coverageMinimumStmtTotal := 90
+coverageExcludedPackages := ".*CoreMain.*;"
