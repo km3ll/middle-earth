@@ -10,3 +10,6 @@ libraryDependencies ++= Seq(
 
 // compiler
 scalacOptions ++= commonOptions
+
+// plugins
+coverageEnabled := false

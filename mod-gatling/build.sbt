@@ -12,5 +12,9 @@ libraryDependencies ++= Seq(
 // compiler
 scalacOptions ++= commonOptions
 
+// plugins
+coverageEnabled := false
+
+// fixme: gatling plugin is not working
 //addSbtPlugin("io.gatling" % "gatling-sbt" % "3.2.1")
 //enablePlugins( GatlingPlugin )

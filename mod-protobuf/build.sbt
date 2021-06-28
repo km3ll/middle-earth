@@ -11,6 +11,10 @@ libraryDependencies ++= Seq(
 // compiler
 scalacOptions ++= commonOptions
 
+// plugins
+coverageEnabled := false
+
+// fixme: protobuf plugin is not working
 //addSbtPlugin("com.thesamet" % "sbt-protoc" % "0.99.25")
 //enablePlugins( ProtocPlugin )
 
