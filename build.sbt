@@ -29,5 +29,5 @@ lazy val scaffeine  = project.in( file( "mod-scaffeine" ) )
 lazy val scalacheck = project.in( file( "mod-scalacheck" ) )
 
 // alias
-addCommandAlias( "build", "clean ; compile ; test:compile ;")
-addCommandAlias( "core", "core/clean ; core/compile ; core/test:compile ; core/coverageReport")
+addCommandAlias( name = "build", value = "clean ; compile ; test:compile ; " )
+addCommandAlias( name = "core", value = "core/clean ; core/compile ; core/test:compile ; core/coverageReport" )
