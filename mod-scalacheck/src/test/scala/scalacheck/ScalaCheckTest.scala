@@ -4,8 +4,10 @@ import java.text.SimpleDateFormat
 import java.util
 import java.util.UUID
 
+import org.scalacheck.{ Arbitrary, Gen }
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
+import scalacheck.Tags.UnitTest
 
 class ScalaCheckTest extends AnyFlatSpec with Matchers {
 
