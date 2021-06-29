@@ -23,6 +23,7 @@
 - elastic-search
 - kafka
 - kafka-streams
+- kindle-clippings
 - metrics
 - monix
 - monocle
