@@ -1,3 +1,5 @@
+import SbtCommon._
+
 name := "protobuf"
 version := "0.1"
 
@@ -6,6 +8,13 @@ libraryDependencies ++= Seq(
   "org.scalatest"         %%  "scalatest"       % "3.2.2"
 )
 
+// compiler
+scalacOptions ++= commonOptions
+
+// plugins
+coverageEnabled := false
+
+// fixme: protobuf plugin is not working
 //addSbtPlugin("com.thesamet" % "sbt-protoc" % "0.99.25")
 //enablePlugins( ProtocPlugin )
 
@@ -14,24 +23,3 @@ libraryDependencies ++= Seq(
 //Compile / PB.targets := Seq(
 //  scalapb.gen( flatPackage = true ) -> ( target.value / "proto-generated")
 //)
-
-scalacOptions ++= Seq(
-  "-deprecation",
-  "-encoding",
-  "UTF-8",
-  "-feature",
-  "-language:existentials",
-  "-language:higherKinds",
-  "-language:implicitConversions",
-  "-language:experimental.macros",
-  "-unchecked",
-  "-Xfatal-warnings",
-  "-Xlint",
-  "-Yno-adapted-args",
-  "-Ypartial-unification",
-  "-Ywarn-dead-code",
-  "-Ywarn-numeric-widen",
-  "-Ywarn-value-discard",
-  "-Ywarn-unused-import",
-  "-Xfuture"
-)

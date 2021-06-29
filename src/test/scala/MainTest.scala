@@ -3,11 +3,11 @@ import org.scalatest.funsuite.AnyFunSuite
 
 class MainTest extends AnyFunSuite {
 
-  test("Smoke test") {
+  test( "Smoke test" ) {
     val config = ConfigFactory.load()
-    val greeting = config.getString("me.khazad-dum.greeting")
+    val greeting = config.getString( "me.khazad-dum.greeting" )
 
-    assert( greeting.contains("Moria") )
+    assert( greeting.contains( "Moria" ) )
   }
 
 }

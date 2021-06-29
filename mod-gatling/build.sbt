@@ -1,3 +1,5 @@
+import SbtCommon._
+
 name := "gatling"
 version := "0.1"
 
@@ -7,26 +9,12 @@ libraryDependencies ++= Seq(
   "org.scalatest"         %% "scalatest"                  % "3.2.2"
 )
 
+// compiler
+scalacOptions ++= commonOptions
+
+// plugins
+coverageEnabled := false
+
+// fixme: gatling plugin is not working
 //addSbtPlugin("io.gatling" % "gatling-sbt" % "3.2.1")
 //enablePlugins( GatlingPlugin )
-
-scalacOptions ++= Seq(
-  "-deprecation",
-  "-encoding",
-  "UTF-8",
-  "-feature",
-  "-language:existentials",
-  "-language:higherKinds",
-  "-language:implicitConversions",
-  "-language:experimental.macros",
-  "-unchecked",
-  "-Xfatal-warnings",
-  "-Xlint",
-  "-Yno-adapted-args",
-  "-Ypartial-unification",
-  "-Ywarn-dead-code",
-  "-Ywarn-numeric-widen",
-  "-Ywarn-value-discard",
-  "-Ywarn-unused-import",
-  "-Xfuture"
-)
