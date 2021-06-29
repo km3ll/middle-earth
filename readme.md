@@ -21,6 +21,7 @@
 - cassandra
 - context-trace
 - elastic-search
+- gatling-examples
 - kafka
 - kafka-streams
 - kindle-clippings
