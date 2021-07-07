@@ -1,3 +1,0 @@
-# scaffeine
-
-Caffeine Cache
