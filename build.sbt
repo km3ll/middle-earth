@@ -12,6 +12,13 @@ lazy val domain = project
     scalacOptions ++= compilerOptions
   )
 
+lazy val persistence = project
+  .in( file( "mod-persistence" ) )
+  .settings(
+    libraryDependencies ++= persistenceDependencies,
+    scalacOptions ++= compilerOptions
+  ).dependsOn( domain )
+
 // coverage
 coverageMinimumStmtTotal := 90
 
