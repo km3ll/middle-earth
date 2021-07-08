@@ -1,0 +1,193 @@
+swagger: "2.0"
+info:
+  description: "Banking application to model saving account operations"
+  version: "0.0.1"
+  title: "khazaddum"
+  contact:
+    email: "km3ll@protonmail.com"
+host: "localhost:8081"
+basePath: "/"
+tags:
+  - name: "status"
+    description: "Application's heartbeat"
+  - name: "account"
+    description: "Operations about saving accounts"
+schemes:
+  - "http"
+paths:
+  /status:
+    get:
+      tags:
+        - "status"
+      summary: "Get application running status"
+      description: ""
+      operationId: "getStatus"
+      produces:
+        - "application/json"
+      responses:
+        "200":
+          description: "Success"
+          schema:
+            $ref: '#/definitions/GetStatusResponse'
+  /khazaddum/account:
+    post:
+      tags:
+        - "account"
+      summary: "Open a saving account"
+      description: ""
+      operationId: "openAccount"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "body"
+          in: "body"
+          description: "Basic properties to open a saving account"
+          required: true
+          schema:
+            $ref: "#/definitions/OpenAccountRequest"
+        - name: "X-CorrelationId"
+          type: "string"
+          in: "header"
+          description: "Universal unique value for the transaction"
+          x-example: "kjdh567-l65d-m63s-652s-ckkgf5001"
+      responses:
+        "200":
+          description: "Account opened successfully"
+          schema:
+            $ref: '#/definitions/OpenAccountResponseOk'
+        "400":
+          description: "Bad request"
+          schema:
+            $ref: '#/definitions/OpenAccountResponseBadRequest'
+        "500":
+          description: "Internal server errorr"
+          schema:
+            $ref: '#/definitions/OpenAccountResponseError'
+    get:
+      tags:
+        - "account"
+      summary: "Find a saving account"
+      description: ""
+      operationId: "findAccount"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "no"
+          in: "query"
+          type: "string"
+        - name: "X-CorrelationId"
+          type: "string"
+          in: "header"
+          description: "Universal unique value for the transaction"
+          x-example: "kjdh567-l65d-m63s-652s-ckkgf5001"
+      responses:
+        "200":
+          description: "Success"
+          schema:
+            $ref: '#/definitions/FindAccountResponseOk'
+        "404":
+          description: "Account not found"
+          schema:
+            $ref: '#/definitions/FindAccountResponseNotFound'
+        "500":
+          description: "Internal server errorr"
+          schema:
+            $ref: '#/definitions/FindAccountResponseError'
+definitions:
+  GetStatusResponse:
+    type: "object"
+    properties:
+      dateTime:
+        type: "string"
+      message:
+        type: "string"
+    example:
+      dateTime: "2020-05-09T17:23:58.566-05:00[America/Bogota]"
+      message: "UP!"
+  OpenAccountRequest:
+    type: "object"
+    properties:
+      accountNo:
+        type: "string"
+      balance:
+        type: "integer"
+        format: "int64"
+    example:
+      accountNo: "8100000001"
+      balance: 50000000
+  OpenAccountResponseOk:
+    type: "object"
+    properties:
+      dateTime:
+        type: "string"
+      message:
+        type: "string"
+    example:
+      dateTime: "2020-05-09T17:08:46.633-05:00[America/Bogota]"
+      message: "Account no '8100000001' opened successfully"
+  OpenAccountResponseBadRequest:
+    type: "object"
+    properties:
+      dateTime:
+        type: "string"
+      message:
+        type: "string"
+    example:
+      dateTime: "2020-05-09T17:17:56.840-05:00[America/Bogota]"
+      message: "Error creating account. Account could not be created because some its fields are invalid - Account number must be between 1 and 9999999999. Found '', Balance must not be negative. Found '-30'"
+  OpenAccountResponseError:
+    type: "object"
+    properties:
+      dateTime:
+        type: "string"
+      message:
+        type: "string"
+    example:
+      dateTime: "2020-05-09T17:19:00.234-05:00[America/Bogota]"
+      message: "Account repository unavailable"
+  FindAccountResponseOk:
+    type: "object"
+    properties:
+      dateTime:
+        type: "string"
+      message:
+        type: "string"
+      account:
+        type: "object"
+        properties:
+          no:
+            type: "string"
+          openDate:
+            type: "string"
+          balance:
+            type: "integer"
+            format: "int64"
+    example:
+      datetime: "2020-05-09T17:09:52.456-05:00[America/Bogota]"
+      message: "Success"
+      account:
+        no: "8100000001"
+        openDate: "2020-05-09 17:08:46.558"
+        balance: 50000000.00
+  FindAccountResponseNotFound:
+    type: "object"
+    properties:
+      dateTime:
+        type: "string"
+      message:
+        type: "string"
+    example:
+      dateTime: "2020-05-09T17:03:10.535-05:00[America/Bogota]"
+      message: "Account no '1000000001' not found"
+  FindAccountResponseError:
+    type: "object"
+    properties:
+      dateTime:
+        type: "string"
+      message:
+        type: "string"
+    example:
+      dateTime: "2020-05-09T17:03:12.001-05:00[America/Bogota]"
+      message: "Account repository unavailable"
