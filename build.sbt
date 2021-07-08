@@ -12,6 +12,13 @@ lazy val domain = project
     scalacOptions ++= compilerOptions
   )
 
+lazy val http = project
+  .in( file( "mod-http" ) )
+  .settings(
+    libraryDependencies ++= httpDependencies,
+    scalacOptions ++= compilerOptions
+  ).dependsOn( domain )
+
 lazy val persistence = project
   .in( file( "mod-persistence" ) )
   .settings(
