@@ -4,6 +4,7 @@ logs
 target
 /.bsp
 /.idea
+/.logs
 /.idea_modules
 /.classpath
 /.project
