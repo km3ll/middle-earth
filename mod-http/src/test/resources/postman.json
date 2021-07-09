@@ -1,0 +1,93 @@
+{
+	"info": {
+		"_postman_id": "f49fe50f-d517-4a30-8130-db5985bcccfc",
+		"name": "khazaddum",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET /status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/status",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /khazaddum/account",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-CorrelationId",
+						"value": "000-000-000-001",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8081/khazaddum/account?no=1000000001",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"khazaddum",
+						"account"
+					],
+					"query": [
+						{
+							"key": "no",
+							"value": "1000000001"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /khazaddum/account",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-CorrelationId",
+						"value": "000-000-000-001",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"accountNo\" : \"1000000001\",\n\t\"balance\" : 800000000 \n}"
+				},
+				"url": {
+					"raw": "localhost:8081/khazaddum/account",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"khazaddum",
+						"account"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

@@ -3,16 +3,20 @@
 ## Table of contents
 
 * [commands](#commands)
+* [wip](#wip)
 * [backlog](#backlog)
 * [references](#references)
 
 ### commands
 
-- compile all modules
-  - `sbt build`
-- run tests
-  - `sbt "testOnly -- -n unit"`
-  - `sbt "testOnly -- -n component"`
+```
+sbt me
+```
+
+### wip
+
+- cassandra
+- akka-http
 
 ### backlog
 
