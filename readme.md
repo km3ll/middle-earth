@@ -17,6 +17,7 @@ sbt me
 
 - cassandra
 - akka-http
+- embedded kafka
 
 ### backlog
 
